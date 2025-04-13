@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+
+  @Output() formSubmitted = new EventEmitter<void>();
 
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
@@ -29,6 +31,7 @@ export class RegisterComponent {
   onSubmit() {
     if (this.registerForm.valid) {
       console.log('Registration data:', this.registerForm.value);
+      this.formSubmitted.emit();
       // Submit to API
     } else {
       this.registerForm.markAllAsTouched();
