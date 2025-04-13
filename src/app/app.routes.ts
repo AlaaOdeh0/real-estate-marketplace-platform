@@ -4,8 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
-    {path: "Home", component: HomeComponent},
-     {path: "Login", component: LoginComponent},
-    {path:"**", component: NotFoundComponent}
+    { path: "Home", component: HomeComponent },
+    { path: "Login", component: LoginComponent },
+    { path: "**", component: NotFoundComponent }
 ];
 
