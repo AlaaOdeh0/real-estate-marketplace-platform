@@ -1,14 +1,19 @@
 input.form-control:hover {
-    background-color: #f9f9f9;
+    background-color: #ede9f1;
   }
   
   input.form-control:hover {
-    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5); /* soft blue glow */
+    box-shadow: 0 0 6px #3e47f8; /* soft blue glow */
     transition: box-shadow 0.3s ease-in-out;
   }
   
   input.form-control:focus {
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.7);
+    box-shadow: 0 0 8px rgba(198, 220, 245, 0.7);
     outline: none;
-    border-color: #80bdff;
+    border-color: #d4d5f7;
   }
+
+  .btn {  
+    background: linear-gradient(to right, #3e47f8, #b6b9ff);
+    border: none;
+}

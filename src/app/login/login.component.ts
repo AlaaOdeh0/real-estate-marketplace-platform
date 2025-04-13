@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  @Output() formSubmitted = new EventEmitter<void>();
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
@@ -22,7 +23,7 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('Login data:', this.loginForm.value);
-      // Call auth service here
+      this.formSubmitted.emit();
     } else {
       this.loginForm.markAllAsTouched();
     }

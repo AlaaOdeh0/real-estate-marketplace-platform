@@ -1,9 +1,9 @@
 <div class="container mt-5" style="max-width: 500px;">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-4 shadow-sm bg-white rounded border">
-      <h3 class="mb-4 text-center">Login</h3>
+      <h3 class="mb-4 text-center">Sign in</h3>
   
       <div class="mb-3">
-        <label class="form-label">Email address</label>
+        <label class="form-label">Email</label>
         <input type="email" class="form-control" formControlName="email">
         <div class="text-danger small" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
           <small *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</small>
@@ -19,7 +19,7 @@
         </div>
       </div>
   
-      <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Login</button>
+      <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Sign in </button>
     </form>
   </div>
   
