@@ -2,13 +2,13 @@ form {
   background: #fff;
   border-radius: 0.75rem;
   padding: 2rem;
-  box-shadow: 0 0 8px rgba(198, 220, 245, 0.7);
+  box-shadow: 0 0 8px rgba(252, 232, 140, 0.7);
   outline: none;
-  border-color: #d4d5f7;
+  border-color: #f2eac4;
 }
 
 button[type="submit"] {
-  background: linear-gradient(to right, #3e47f8, #8f94fb);
+  background: linear-gradient(to right, #322b08, #fbe98f);
   border: none;
 }
 
@@ -20,7 +20,7 @@ input.form-control:hover {
   }
   
   input.form-control:hover {
-    box-shadow: 0 0 6px #3e47f8; /* soft blue glow */
+    box-shadow: 0 0 6px #523e02; /* soft blue glow */
     transition: box-shadow 0.3s ease-in-out;
   }
   

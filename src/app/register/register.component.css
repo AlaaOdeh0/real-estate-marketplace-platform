@@ -1,19 +1,19 @@
 input.form-control:hover {
-    background-color: #ede9f1;
+    background-color: #efeadc;
   }
   
   input.form-control:hover {
-    box-shadow: 0 0 6px #3e47f8; /* soft blue glow */
+    box-shadow: 0 0 6px #6e6421; /* soft blue glow */
     transition: box-shadow 0.3s ease-in-out;
   }
   
   input.form-control:focus {
-    box-shadow: 0 0 8px rgba(198, 220, 245, 0.7);
+    box-shadow: 0 0 8px rgba(237, 211, 108, 0.7);
     outline: none;
-    border-color: #d4d5f7;
+    border-color: #f8dc93;
   }
 
   .btn {  
-    background: linear-gradient(to right, #3e47f8, #b6b9ff);
+    background: linear-gradient(to right, #322b08, #fbe98f);
     border: none;
 }
