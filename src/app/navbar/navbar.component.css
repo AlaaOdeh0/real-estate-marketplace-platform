@@ -1,0 +1,10 @@
+/* Increase the navbar height */
+.navbar {
+    height: 80px; /* Adjust this value as needed */
+    font-weight: bold; /* Make the text bolder */
+  }
+  
+  .navbar-nav .nav-link {
+    font-weight: bold; /* Optional: Make individual nav items bolder */
+  }
+  
