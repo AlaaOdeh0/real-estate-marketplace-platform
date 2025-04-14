@@ -21,19 +21,3 @@ p {
     color: #ba8bf4; /* Gold color */
     text-shadow: 20px 20px 20px #e347e0;
   }
-  
-  
-  @keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-footer {
-  animation: fadeInUp 1s ease-out;
-}
