@@ -1,0 +1,19 @@
+<table cellpadding="10" cellspacing="0" class="styled-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of showusers()">
+    <tr>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <button type="button" class="btn btn-outline btn-custom m-1" (click)="approveUser(user.id)">Approve</button>
+        <button type="button" class="btn btn-outline btn-custom1" (click)="rejectUser(user.id)">Reject</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
