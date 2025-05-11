@@ -1,0 +1,131 @@
+<div class="moderation-panel-wrapper p-4 rounded">
+  <h4 class="section-title">Moderation Panel</h4>
+
+  <div class="table-container">
+    <table class="moderation-table">
+      <thead>
+      <tr>
+        <th>Type</th>
+        <th>Item ID</th>
+        <th>Reported By</th>
+        <th>Reason</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Listing</td>
+        <td>#PROP123</td>
+        <td>User456</td>
+        <td>Inappropriate Content</td>
+        <td>2025-04-18</td>
+        <td><span class="status pending">Pending</span></td>
+        <td>
+          <button class="action-btn approve">Approve</button>
+          <button class="action-btn reject">Remove</button>
+        </td>
+      </tr>
+      <tr>
+        <td>User</td>
+        <td>#USR789</td>
+        <td>User321</td>
+        <td>Spam</td>
+        <td>2025-04-17</td>
+        <td><span class="status reviewed">Reviewed</span></td>
+        <td>
+          <button class="action-btn disabled" disabled>Approve</button>
+          <button class="action-btn disabled" disabled>Remove</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .moderation-panel-wrapper {
+    background-color: #FAEDCD;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    margin-top: 24px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color:black;
+    margin-bottom: 20px;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .moderation-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .moderation-table thead {
+    background-color: #CCD5AE;
+    color: #000;
+    font-weight: 600;
+  }
+
+  .moderation-table th,
+  .moderation-table td {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .moderation-table tbody tr {
+    background-color: #CCD5AE;
+  }
+
+  .status {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .status.pending {
+    background-color: #ffe4b5;
+    color: #7f5539;
+  }
+
+  .status.reviewed {
+    background-color: #e0e0e0;
+    color: #777;
+  }
+
+  .action-btn {
+    font-size: 13px;
+    padding: 6px 10px;
+    margin-right: 6px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .action-btn.approve {
+    background-color: #90A955;
+  }
+
+  .action-btn.reject {
+    background-color: #D68C45;
+  }
+
+  .action-btn.disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+  }
+</style>

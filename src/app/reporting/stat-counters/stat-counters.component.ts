@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { StatisticsService } from '../../services/statistics.service';
 
 @Component({
   selector: 'app-stat-counters',
-  imports: [],
-  templateUrl: './stat-counters.component.html',
-  styleUrl: './stat-counters.component.css'
+  templateUrl: './stat-counters.component.html'
 })
-export class StatCountersComponent {
+export class StatCountersComponent implements OnInit {
+  totalProperties = 0;
+  activeUsers = 0;
 
+  constructor(private statsService: StatisticsService) {}
+
+  ngOnInit(): void {
+    this.totalProperties = this.statsService.getPropertyCount();
+    this.activeUsers = this.statsService.getActiveUserCount();
+  }
 }
