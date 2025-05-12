@@ -15,14 +15,13 @@ button[type="submit"] {
 button[type="submit"]:hover {
   filter: brightness(1.1);
 }
+
 input.form-control:hover {
-    background-color: #efeadc;
+  background-color: #efeadc;
 
-  }
-  
-  input.form-control:hover {
-    box-shadow: 0 0 6px #523e02; /* soft blue glow */
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  
+}
 
+input.form-control:hover {
+  box-shadow: 0 0 6px #523e02;
+  transition: box-shadow 0.3s ease-in-out;
+}

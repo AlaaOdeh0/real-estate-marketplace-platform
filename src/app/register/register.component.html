@@ -1,46 +1,50 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-4 shadow-sm bg-white rounded border ">
-  
+
   <div class="text-center mb-3">
-    <div class="rounded-circle bg-gradient text-white d-inline-flex align-items-center justify-content-center" style="width: 30px; height: 20px;">
+    <div class="rounded-circle bg-gradient text-white d-inline-flex align-items-center justify-content-center"
+      style="width: 30px; height: 20px;">
       <i class="bi bi-person-plus fs-3"></i>
     </div>
     <h4 class="mt-3 fw-semibold">Create Your Account</h4>
     <p class="text-muted small">Join us to explore premium real estate listings</p>
   </div>
-  
+
   <div class="mb-3">
-      <label class="form-label">Username:</label>
-      <input type="text" class="form-control" formControlName="username" />
-      <div class="text-danger small" *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
-        <small>Username is required.</small>
-      </div>
+    <label class="form-label">Username:</label>
+    <input type="text" class="form-control" formControlName="username" />
+    <div class="text-danger small"
+      *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+      <small>Username is required.</small>
     </div>
-  
-    <div class="mb-3">
-      <label  class="form-label">Email:</label>
-      <input type="email" class="form-control" formControlName="email" />
-      <div class="text-danger small" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
-        <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</small>
-        <small *ngIf="registerForm.get('email')?.errors?.['email']">Invalid email format.</small>
-      </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email:</label>
+    <input type="email" class="form-control" formControlName="email" />
+    <div class="text-danger small" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+      <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</small>
+      <small *ngIf="registerForm.get('email')?.errors?.['email']">Invalid email format.</small>
     </div>
-  
-    <div class="mb-3">
-      <label class="form-label">Password:</label>
-      <input type="password" class="form-control" formControlName="password" />
-      <div class="text-danger small" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
-        <small>Password is required (min 6 chars).</small>
-      </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Password:</label>
+    <input type="password" class="form-control" formControlName="password" />
+    <div class="text-danger small"
+      *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+      <small>Password is required (min 6 chars).</small>
     </div>
-  
-    <div class="mb-3">
-      <label class="form-label">Confirm Password:</label>
-      <input type="password" class="form-control" formControlName="confirmPassword" />
-      <div class="text-danger small" *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword')?.touched">
-        <small>Passwords do not match.</small>
-      </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Confirm Password:</label>
+    <input type="password" class="form-control" formControlName="confirmPassword" />
+    <div class="text-danger small"
+      *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword')?.touched">
+      <small>Passwords do not match.</small>
     </div>
-  
-    <button class="btn  w-100 rounded-3" type="submit" [disabled]="registerForm.invalid" style="color: rgb(235, 229, 229);">Submit</button>
-  </form>
-  
+  </div>
+
+  <button class="btn  w-100 rounded-3" type="submit" [disabled]="registerForm.invalid"
+    style="color: rgb(235, 229, 229);">Submit</button>
+</form>

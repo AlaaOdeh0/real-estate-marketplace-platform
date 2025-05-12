@@ -1,23 +1,23 @@
 .back {
-    background-color: #f8edda;
+  background-color: #f8edda;
 }
 
 i,
 p {
-    color: #2b2511;
+  color: #2b2511;
 }
 
 .text-light {
-    color: #655830 !important;
-  }
-  
-  .footer-link {
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.6s ease, text-shadow 0.6s ease;
-  }
-  
-  .footer-link:hover {
-    color: #f4da8b; /* Gold color */
-    text-shadow: 20px 20px 20px #040402;
-  }
+  color: #655830 !important;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.6s ease, text-shadow 0.6s ease;
+}
+
+.footer-link:hover {
+  color: #f4da8b;
+  text-shadow: 20px 20px 20px #040402;
+}
