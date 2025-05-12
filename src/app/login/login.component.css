@@ -16,7 +16,8 @@ button[type="submit"]:hover {
   filter: brightness(1.1);
 }
 input.form-control:hover {
-    background-color: #e9e7ec;
+    background-color: #efeadc;
+
   }
   
   input.form-control:hover {
