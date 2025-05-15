@@ -1,0 +1,23 @@
+<form class="listing-form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <h2>Edit Property</h2>
+
+  <label for="title">Title</label>
+  <input id="title" formControlName="title" />
+
+  <label for="price">Price</label>
+  <input id="price" type="number" formControlName="price" />
+
+  <label for="type">Type</label>
+  <input id="type" formControlName="type" />
+
+  <label for="description">Description</label>
+  <textarea id="description" formControlName="description"></textarea>
+
+  <label for="editImage">Upload New Image</label>
+  <input type="file" id="editImage" (change)="onFileChange($event)" accept="image/*" />
+  <div *ngIf="imagePreview">
+    <img [src]="imagePreview" alt="Preview" width="200" />
+  </div>
+
+  <button type="submit" [disabled]="!editForm.valid">Save Changes</button>
+</form>

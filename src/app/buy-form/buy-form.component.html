@@ -1,0 +1,10 @@
+<div class="inquiry-form">
+    <h3>Buy Inquiry</h3>
+    <form (ngSubmit)="submitBuy()" #buyForm="ngForm">
+      <input type="text" name="name" [(ngModel)]="name" placeholder="Your Name" required />
+      <input type="email" name="email" [(ngModel)]="email" placeholder="Your Email" required />
+      <textarea name="message" [(ngModel)]="message" placeholder="Message" required></textarea>
+      <button type="submit" [disabled]="!buyForm.valid">Send Buy Inquiry</button>
+    </form>
+  </div>
+  

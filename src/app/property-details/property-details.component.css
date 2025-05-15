@@ -1,0 +1,44 @@
+.property-details {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    background: #e8e9da;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .property-details h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  .property-details img {
+    max-width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+  }
+  
+  .property-details p {
+    margin: 0.5rem 0;
+  }
+  
+  .inquiry-toggle {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .inquiry-toggle button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: #e2e3e4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .inquiry-toggle button:hover {
+    background: #f0f3f6;
+  }
+  

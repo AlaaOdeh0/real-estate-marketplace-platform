@@ -1,0 +1,28 @@
+
+<div class="card">
+  <a [routerLink]="['/details', listing.id]">
+    <div class="property-card">
+  <img *ngIf="listing.image" [src]="listing.image" alt="Property Image" width="100%" />
+</div>
+  </a>
+
+  <h3>{{ listing.title }}</h3>
+  <p>{{ listing.description }}</p>
+  <p><strong>Price:</strong> ${{ listing.price }}</p>
+  <p><strong>Type:</strong> {{ listing.type }}</p>
+  <p><strong>Status:</strong> {{ listing.status }}</p>
+
+  <button [routerLink]="['/edit', listing.id]"> Edit</button>
+  <button (click)="deleteListing()"> Delete</button>
+  <button (click)="toggleStatus()"> Toggle Status</button>
+  <button (click)="openInquiryModal()">Send Inquiry</button>
+
+
+<app-inquiry-modal
+  *ngIf="showInquiryModal"
+  [listing]="listing"
+  (close)="closeInquiryModal()">
+</app-inquiry-modal>
+
+</div>
+

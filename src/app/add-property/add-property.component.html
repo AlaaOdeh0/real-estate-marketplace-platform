@@ -1,0 +1,23 @@
+<form class="listing-form" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+  <h2>Add New Property</h2>
+
+  <label for="title">Title</label>
+  <input id="title" formControlName="title" />
+
+  <label for="price">Price</label>
+  <input id="price" type="number" formControlName="price" />
+
+  <label for="type">Type</label>
+  <input id="type" formControlName="type" />
+
+  <label for="description">Description</label>
+  <textarea id="description" formControlName="description"></textarea>
+
+  <label for="image">Upload Image</label>
+  <input type="file" id="image" (change)="onFileChange($event)" accept="image/*" />
+  <div *ngIf="imagePreview">
+    <img [src]="imagePreview" alt="Preview" width="200" />
+  </div>
+
+  <button type="submit" [disabled]="!addForm.valid">Add Property</button>
+</form>

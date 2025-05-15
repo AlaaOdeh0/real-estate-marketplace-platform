@@ -1,0 +1,16 @@
+<div class="property-details">
+    <h2>{{ listing?.title }}</h2>
+    <img *ngIf="listing?.image" [src]="listing.image" alt="Property image" />
+    <p><strong>Price:</strong> {{ listing?.price | currency }}</p>
+    <p><strong>Type:</strong> {{ listing?.type }}</p>
+    <p><strong>Description:</strong> {{ listing?.description }}</p>
+  
+ 
+<button (click)="showRentForm()">Rent</button>
+<button (click)="showBuyForm()">Buy</button>
+
+<app-rent-form *ngIf="formType === 'rent'" [listing]="listing" (close)="closeForm()" />
+<app-buy-form *ngIf="formType === 'buy'" [listing]="listing" (close)="closeForm()" />
+
+  </div>
+  

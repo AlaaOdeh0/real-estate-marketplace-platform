@@ -1,0 +1,50 @@
+.listing-form {
+  background-color: #ebe7d9; 
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.listing-form h2 {
+  color: #02131a;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.listing-form label {
+  display: block;
+  margin: 0.5rem 0 0.25rem;
+  color: #172227;
+  font-weight: bold;
+}
+
+.listing-form input,
+.listing-form select,
+.listing-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+}
+
+.listing-form button {
+  background-color: #699264;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.listing-form button:hover {
+  background-color: #364b33;
+}

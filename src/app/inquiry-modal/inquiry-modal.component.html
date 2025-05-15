@@ -1,0 +1,9 @@
+<div class="modal">
+    <div class="modal-content">
+      <h2>Send Inquiry for {{ listing?.title }}</h2>
+      <input type="text" placeholder="Your name" [(ngModel)]="name" />
+      <textarea placeholder="Message" [(ngModel)]="message"></textarea>
+      <button (click)="sendInquiry()">Send Inquiry</button>
+      <button (click)="close.emit()">Cancel</button>
+    </div>
+  </div>
