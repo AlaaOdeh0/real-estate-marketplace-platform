@@ -1,0 +1,16 @@
+[33m2fc6a19[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/userRolesAuthentication[m[33m, [m[1;31morigin/HEAD[m[33m)[m Add platform logo, remove trailing spaces
+[33mf163272[m Some changes were added to prepare for the merge
+[33m2ba122b[m Update page color scheme
+[33m341733d[m Navigation bar and text height adjustment
+[33me98e263[m Add opening image with text overlay
+[33m622096d[m enhance footer design and add routing for Home, Sell, Rent, and Buy links
+[33m98c7414[m update login feature to modern modal design
+[33m7ca02ea[m refactor register form into modal and apply modern UI enhancements
+[33m06880a8[m add responsive footer component and install bootstrap-icons
+[33m51f3cf7[m add login component with reactive forms and bootstrap styling
+[33m1dfbf62[m add register form component with reactive forms and bootstrap styling
+[33m5b7d28c[m Add core components and routing setup: Home, Login, Registration, 404 page, Navbar, footer and routing for Buy, Sell, Rent, Home, Login, and Registration.
+[33m338b58e[m[33m ([m[1;31morigin/feature/rating-and-review[m[33m, [m[1;31morigin/featuer/notifications-navbar[m[33m)[m Removed default Angular template from AppComponent
+[33mc223381[m Added Bootstrap to the project
+[33m3c06dce[m Update README with project info
+[33m6da2378[m initial commit
