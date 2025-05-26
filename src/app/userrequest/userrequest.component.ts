@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {NgForOf} from '@angular/common';
+import { NgIf, NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-userrequest',
   imports: [
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './userrequest.component.html',
   styleUrl: './userrequest.component.css'
@@ -28,6 +29,8 @@ export class UserrequestComponent {
       email:'lara@gmail.com',
       status:'pending',
     }]
+    users = this.showusers();
+
 
   showusers() {
     return this.newusers.filter(user => user.status === 'pending');

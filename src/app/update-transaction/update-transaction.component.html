@@ -1,0 +1,113 @@
+
+<div class="modal fade" id="editTransactionModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form [formGroup]="editForm" (ngSubmit)="submitForm()">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Transaction</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <label class="form-label">Transaction ID:</label>
+              <input type="text" formControlName="transactionId" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Property ID:</label>
+              <input type="number" formControlName="propertyId" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Property Title:</label>
+              <input type="text" formControlName="propertyTitle" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Transaction Type:</label>
+              <select formControlName="transactionType" class="form-select">
+                <option value="" disabled>Choose type</option>
+                <option value="sale">Sale</option>
+                <option value="rent">Rent</option>
+                <option value="rent">purchase</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Amount:</label>
+              <input type="number" formControlName="amount" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Currency:</label>
+              <select formControlName="currency" class="form-select">
+                <option value="" disabled>Choose currency</option>
+                <option value="EGP">EGP</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Date:</label>
+              <input type="date" formControlName="date" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Buyer ID:</label>
+              <input type="text" formControlName="buyer_id" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Buyer Name:</label>
+              <input type="text" formControlName="buyer_name" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Customer ID:</label>
+              <input type="text" formControlName="customer_id" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Customer Name:</label>
+              <input type="text" formControlName="customer_name" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Payment Method:</label>
+              <select formControlName="paymentMethod" class="form-select">
+                <option value="cash">Cash</option>
+                <option value="bank">bank transfer</option>
+                <option value="credit">credit card</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Status:</label>
+              <select formControlName="status" class="form-select">
+                <option value="" disabled>Choose status</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Documents:</label>
+              <input type="file" class="form-control" formControlName="documents" multiple />
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success" [disabled]="!editForm.valid" data-bs-dismiss="modal">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

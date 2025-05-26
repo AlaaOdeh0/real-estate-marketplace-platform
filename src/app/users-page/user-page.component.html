@@ -1,73 +1,88 @@
 
-<div class="d-flex justify-content-between mb-3">
+<div class="container">
+  <app-add-user (userAdded)="addUser($event)"  ></app-add-user>
+  <app-update-user
+    [user]="selectedUser"
+    (userUpdated)="handleUserUpdate($event)">
+  </app-update-user>
+
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 gap-2">
+    <div class="filter-section d-flex align-items-center">
+      <h5 class="me-2 mb-0">Filter:</h5>
+      <select [(ngModel)]="selectedType" (change)="applyFilters()" class="form-select">
+        <option value="all">all</option>
+        <option value="admin">admin</option>
+        <option value="seller">seller</option>
+        <option value="buyer">buyer</option>
+        <option value="agent">agent</option>
+      </select>
+    </div>
+
+    <div class="search-section d-flex align-items-center">
+      <h5 class="me-2 mb-0">Search:</h5>
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        (input)="applySearch()"
+        class="form-control"
+        placeholder="search"
+      >
+    </div>
+  </div>
+
+  <div class="table-responsive custom-table-responsive">
+    <table cellpadding="10" cellspacing="0" class="styled-table table table-hover custom-table" style="min-width: 900px;">
+      <thead class="table-primary">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Profile</th>
+          <th>Type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of applySearch()">
+          <td>{{ user.id }}</td>
+          <td>
+            <img
+              class="m-3 rounded-circle"
+              [src]="user.images"
+              alt="Image"
+              width="50"
+              height="50">
+            {{ user.name }}
+          </td>
+          <td>{{ user.email }}</td>
+          <td>
+            <a href="" style="text-decoration: none;">{{ user.profile }}</a>
+          </td>
+          <td>{{ user.type }}</td>
+          <td>
+            <button type="button" class="btn btn-outline btn-sm m-1" (click)="DeleteUser(user.id)">
+
+              <i class="fa-solid fa-trash"></i>
+              </button>
+
+            <button type="button" class="btn btn-outline btn-sm"  (click)="openEditModal(user)">
+              <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+          </td>
 
 
 
+        </tr>
 
-  <div class="filter-section">
-    <h5>Filter:</h5>
-    <select [(ngModel)]="selectedType" (change)="applyFilters()" class="form-select me-2">
-      <option value="all">all</option>
-      <option value="admin">admin</option>
-      <option value="seller">seller</option>
-      <option value="buyer">buyer</option>
-      <option value="agent">agent</option>
-    </select>
+      </tbody>
+    </table>
 
 
   </div>
 
-
-  <div class="search-section">
-    <h5>Search:</h5>
-    <input
-      type="text"
-      [(ngModel)]="searchText"
-      (input)="applySearch()"
-      class="form-control"
-      placeholder="search"
-    >
-  </div>
 </div>
 
 
-<table class="table table-hover custom-table">
-  <thead class="table-primary">
-  <tr>
-        <th id="mm">ID</th>
-        <th >Name</th>
-        <th>Email</th>
-        <th>Profile</th>
-        <th>Type</th>
-        <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-
-    <tr  *ngFor="let user of applySearch()">
-      <td>{{ user.id }}</td>
-      <td>
-        <img
-        class="m-3 rounded-circle"
-        [src]="user.images"
-        alt="Image"
-        width="50"
-        height="50">
-        {{ user.name }}
-      </td>
-      <td>{{ user.email }}</td>
-      <td> <a href="" style="text-decoration: none;">{{ user.profile }}</a> </td>
-      <td>{{ user.type }}</td>
-      <td>
-        <button type="button" class="btn btn-outline btn-sm" (click)="DeleteUser(user.id)" >
-          Delete
-        </button>
-      </td>
-    </tr>
-    <tr *ngIf="filteredUsers.length === 0">
-      <td colspan="7" class="text-center text-muted py-4">No users found</td>
-    </tr>
 
 
-    </tbody>
-</table>
+

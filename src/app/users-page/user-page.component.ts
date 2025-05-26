@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
+import { AddUserComponent } from "../add-user/add-user.component";
+import { CommonModule } from '@angular/common';
+import {UpdateUserComponent} from '../update-user/update-user.component';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-users-page',
+  standalone: true,
   imports: [
     FormsModule,
     NgForOf,
-    NgIf,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AddUserComponent,
+    CommonModule,
+    UpdateUserComponent
   ],
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.css'
@@ -81,13 +88,32 @@ export class UserPageComponent {
     }
   ];
 
+  selectedUser: any = null;
+
+  openEditModal(user: any) {
+    this.selectedUser = user;
+    const modalElement = document.getElementById('editUserModal');
+    if (modalElement) {
+      const modalInstance = new bootstrap.Modal(modalElement);
+      modalInstance.show();
+    }
+  }
+
+  handleUserUpdate(updatedUser: any) {
+    const index = this.user.findIndex(u => u.id === updatedUser.id);
+    if (index !== -1) {
+      this.user[index] = updatedUser;
+    }
+  }
+
+
 
   DeleteUser(id: number) {
     this.user = this.user.filter(u => u.id !== id);
   }
 
 
-  filteredUsers = this.user;
+  // filteredUsers = this.user;
   searchText: string = "";
   selectedType: string = 'all';
 
@@ -110,4 +136,23 @@ export class UserPageComponent {
       user.type.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
+
+
+
+
+addUser(userData: any) {
+  const lastId = this.user.length > 0
+    ? Math.max(...this.user.map(u => u.id))
+    : 0;
+
+  const newUser = {
+    ...userData,
+    id: lastId + 1,
+    images: [userData.image || "/Dashboard/default.png"]
+  };
+
+  this.user.push(newUser);
 }
+
+}
+

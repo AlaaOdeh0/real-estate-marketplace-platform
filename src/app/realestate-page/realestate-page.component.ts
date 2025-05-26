@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
+import {AddUserComponent} from '../add-user/add-user.component';
+import {AddPropertyComponent} from '../add-property/add-property.component';
 
 @Component({
   selector: 'app-realestate-page',
   imports: [
     FormsModule,
     NgForOf,
+
+    AddPropertyComponent,
 
   ],
   templateUrl: './realestate-page.component.html',
@@ -131,5 +135,17 @@ export class RealestatePageComponent {
     this.realestate = this.realestate.filter(u => u.id !== id);
   }
 
+  addProperty(PropertyData: any) {
+    const lastId = this.realestate.length > 0
+      ? Math.max(...this.realestate.map(u => u.id))
+      : 0;
 
+    const newUser = {
+      ...PropertyData,
+      id: lastId + 1,
+      images: [PropertyData.image || "/Dashboard/default.png"]
+    };
+
+    this.realestate.push(newUser);
+  }
 }

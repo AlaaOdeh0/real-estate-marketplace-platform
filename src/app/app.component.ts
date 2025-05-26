@@ -7,7 +7,7 @@ import {UserrequestComponent} from './userrequest/userrequest.component';
 
 @Component({
   selector: 'app-root',
-  imports: [DashboardComponent, ActivitysummarycardComponent, SidebarComponent, UserrequestComponent, RouterOutlet],
+  imports: [SidebarComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

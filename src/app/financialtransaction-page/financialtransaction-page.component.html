@@ -1,6 +1,15 @@
+<app-add-transaction (transactionAdded)="addtransaction($event)"></app-add-transaction>
+<app-update-transaction
+  *ngIf="selectedTransaction"
+  [transaction]="selectedTransaction"
+  (transactionupdated)="onTransactionUpdated($event)">
+</app-update-transaction>
+
+
+
 <div class="d-flex justify-content-between align-items-end flex-wrap mb-4 gap-3">
   <div class="filter-section">
-    <label class="form-label fw-bold mb-1">Filter:</label>
+    <label class="form-label fw-bold ">Filter:</label>
     <select [(ngModel)]="selectedType" (change)="applyFilters()" class="form-select">
       <option value="all">All Transactions</option>
       <option value="purchase">Purchases</option>
@@ -80,13 +89,23 @@
     </td>
 
     <td>
-      <button
-        type="button"
-        class="btn btn-outline btn-sm btn-custom"
-        (click)="deleteTransaction(transaction.transactionId)">
-        Delete
-      </button>
+      <div class="d-flex gap-2 justify-content-center">
+        <button type="button" class="btn btn-outline btn-sm" (click)="deleteTransaction(transaction.transactionId)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        <button class="btn btn-outline btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#editTransactionModal"
+                (click)="onSelectTransaction(transaction)">
+
+          <i class="fa-regular fa-pen-to-square"></i>
+        </button>
+
+
+
+      </div>
     </td>
+
   </tr>
   </tbody>
 </table>

@@ -5,17 +5,15 @@ import {ActivitysummarycardComponent} from '../activitysummarycard/activitysumma
 import {SidebarComponent} from '../sidebar/sidebar.component';
 import {RealestatePageComponent} from '../realestate-page/realestate-page.component';
 import {FinancialtransactionPageComponent} from '../financialtransaction-page/financialtransaction-page.component';
+import { AddUserComponent } from "../add-user/add-user.component";
 
 @Component({
   selector: 'app-dashboard',
   imports: [
     UserrequestComponent,
-    UserPageComponent,
     ActivitysummarycardComponent,
-    SidebarComponent,
-    RealestatePageComponent,
-    FinancialtransactionPageComponent
-  ],
+
+],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

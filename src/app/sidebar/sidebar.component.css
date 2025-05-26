@@ -1,16 +1,18 @@
-
 .sidebar {
   width: 250px;
   background-color: #FAEDCD;
   color: #5C4B51;
   padding: 1rem;
-  height: 100lvh;
+height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
+  position: relative;
   overflow-y: auto;
+  transition: width 0.3s ease;
+
+}
+
+.main-content {
+  margin-left: 250px;
 }
 
 .sidebar ul {
@@ -37,8 +39,17 @@
   color: #3E2C41;
 }
 
-i{
+.sidebar ul li a:hover svg {
+  fill: #3E2C41;
+}
 
+.nav-link.active {
+  background-color: rgba(0, 0, 0, 0.1);
+  color:#4b3521 !important;
+  border-left: 3px solid #422205;
+}
+
+i {
   text-align: center;
   width: 3rem;
   min-width: 3rem;
@@ -49,12 +60,5 @@ i{
   cursor: pointer;
   border: none;
 }
-.sidebar ul li a:hover svg {
-  fill: #3E2C41;
-}
 
-.nav-link.active {
-  background-color: rgba(0, 0, 0, 0.1);
-  color:#4b3521!important;
-  border-left: 3px solid #422205;
-}
+

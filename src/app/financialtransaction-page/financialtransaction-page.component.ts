@@ -1,13 +1,22 @@
 import { Component } from '@angular/core';
-import {FormsModule} from "@angular/forms";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
-
+import {AddTransactionComponent} from '../add-transaction/add-transaction.component';
+import {UpdateUserComponent} from '../update-user/update-user.component';
+import {UpdateTransactionComponent} from '../update-transaction/update-transaction.component';
+declare var bootstrap: any;
 @Component({
   selector: 'app-financialtransaction-page',
+  standalone: true,
   imports: [
     FormsModule,
     NgForOf,
-    NgIf
+    NgIf,
+    AddTransactionComponent,
+    UpdateTransactionComponent,
+    ReactiveFormsModule
+
+    // UpdateTransactionComponent
   ],
   templateUrl: './financialtransaction-page.component.html',
   styleUrl: './financialtransaction-page.component.css'
@@ -66,16 +75,17 @@ export class FinancialtransactionPageComponent {
 
 
 ];
-  filteredUsers = this.financialTransactions;
+
   searchText: string = "";
   selectedType: string = 'all';
 
+
   applyFilters() {
     return this.financialTransactions.filter(item => {
-    
+
       if (this.selectedType === 'all' || !this.selectedType) return true;
 
-     
+
       return item.transactionType === this.selectedType || item.status === this.selectedType;
     });
   }
@@ -107,4 +117,61 @@ export class FinancialtransactionPageComponent {
       t => t.transactionId !== id
     );
   }
+  addtransaction(transactionData: any) {
+
+
+    const newtransaction = {
+      ...transactionData,
+
+
+    };
+
+    this.financialTransactions.push(newtransaction);
+
+  }
+
+  selectedTransaction: any = null;
+ editForm:FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.editForm = this.fb.group({
+      transactionId: ['', Validators.required],
+      propertyId: [null, Validators.required],
+      propertyTitle: ['', Validators.required],
+      transactionType: ['', Validators.required],
+      amount: [null, Validators.required],
+      currency: ['', Validators.required],
+      date: ['', Validators.required],
+      buyer_id: ['', Validators.required],
+      buyer_name: ['', Validators.required],
+      customer_id: ['', Validators.required],
+      customer_name: ['', Validators.required],
+      paymentMethod: ['', Validators.required],
+      status: ['', Validators.required],
+      documents: [null]
+    });
+  }
+
+
+
+  onTransactionUpdated(updatedtransaction: any) {
+    const index = this.financialTransactions.findIndex(
+      t => t.transactionId === updatedtransaction.transactionId
+    );
+    if (index !== -1) {
+      this.financialTransactions[index] = updatedtransaction;
+    }
+
+    this.selectedTransaction = null;
+    this.editForm.reset();
+  }
+  onSelectTransaction(t: any) {
+    this.selectedTransaction = t;
+    const { documents, ...rest } = t;
+    this.editForm.patchValue(rest);
+    this.editForm.get('documents')?.reset();
+  }
+
+
+
+
 }

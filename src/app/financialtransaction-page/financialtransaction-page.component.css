@@ -1,17 +1,20 @@
-.btn-custom {
-   
-     
-     background-color:bisque; 
-     color: rgb(0, 0, 0)
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+}
 
-  }
-  
-  .btn-custom:hover {
-    border-color:rgb(196, 181, 147); 
-    background-color: #980000;
-    color:aliceblue; }
+.btn{
+  background-color: bisque;
+  color: rgb(0, 0, 0);
+}
 
- 
+.btn:hover {
+  border-color: rgb(196, 181, 147);
+  background-color: #980000;
+  color: aliceblue;
+}
+
+
   .table-head{
     background-color: rgb(165, 126, 67);
   }
@@ -20,7 +23,7 @@
   }
 
   select.form-select:hover,input.form-control:hover  {
-  
+
     box-shadow: 0 0 5px rgb(224, 181, 88);
   }
   select.form-select:focus,input.form-control:focus {
