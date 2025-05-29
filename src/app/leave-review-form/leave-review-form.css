@@ -1,0 +1,28 @@
+.rating-stars .star-icon {
+  font-size: 1.8rem;
+  color: #F3B600;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: color 0.2s ease-in-out;
+}
+.rating-stars .star-icon.bi-star {
+ color: #e0e0e0;
+}
+.btn-submit {
+  background-color: #F3B600;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-weight: bold;
+}
+.btn-submit:hover {
+    background-color: #C69200;
+    color: white;
+}
+.btn-submit:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.text-danger {
+    font-size: 0.8rem;
+}

@@ -1,0 +1,19 @@
+<div class="d-flex align-items-start mb-4 pb-3 border-bottom">
+  <img [src]="review.reviewerAvatarUrl || 'https://via.placeholder.com/50'" alt="{{ review.reviewerName }}" class="rounded-circle me-3" width="50" height="50">
+  <div class="flex-grow-1">
+    <div class="d-flex justify-content-between align-items-center mb-1">
+      <h6 class="mb-0 fw-bold">{{ review.reviewerName }}</h6>
+      <small class="text-muted">{{ getTimeAgo(review.date) }}</small>
+      <!-- Or use DatePipe: <small class="text-muted">{{ review.date | date:'short' }}</small> -->
+    </div>
+    <div class="mb-1 rating-stars-display">
+      <i *ngFor="let star of stars"
+         class="bi star-icon-sm"
+         [class.bi-star-fill]="star <= review.rating"
+         [class.bi-star]="star > review.rating">
+      </i>
+      <span class="ms-1 text-muted">({{ review.rating | number:'1.1-1' }})</span>
+    </div>
+    <p class="mb-0 review-comment">{{ review.comment }}</p>
+  </div>
+</div>

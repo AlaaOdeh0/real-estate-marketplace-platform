@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { ReviewDisplayComponent} from './review-display/review-display';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [ReviewDisplayComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected title = 'review-rating-app';
+export class AppComponent {
+  title = 'review-rating-app';
 }

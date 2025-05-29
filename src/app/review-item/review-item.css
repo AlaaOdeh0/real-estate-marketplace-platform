@@ -1,0 +1,22 @@
+.rating-stars-display .star-icon-sm {
+  font-size: 0.9rem;
+  color: #F3B600;
+  margin-right: 2px;
+}
+.rating-stars-display .star-icon-sm.bi-star {
+  color: #e0e0e0;
+}
+.review-comment {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+.border-bottom {
+   border-bottom: 1px solid #eee !important;
+}
+.pb-3 {
+    padding-bottom: 1rem !important;
+}
+img.rounded-circle {
+    object-fit: cover;
+}
