@@ -1,0 +1,60 @@
+.review-card {
+  max-width: 550px;
+  margin: auto;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.back-button {
+    border-radius: 8px;
+    line-height: 1;
+    padding: 0.4rem 0.6rem;
+}
+.overall-rating-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: -5px;
+}
+.rating-number {
+    color: #333;
+    line-height: 1.1;
+}
+.rating-stars-display .overall-star-icon {
+  font-size: 1.6rem;
+  color: #F3B600;
+  margin: 0 2px;
+}
+.rating-stars-display .overall-star-icon.bi-star {
+  color: #e0e0e0;
+}
+.rating-breakdown .col-label {
+  width: 70px;
+  font-size: 0.85rem;
+  color: #555;
+  text-align: right;
+  padding-right: 5px;
+}
+.rating-breakdown .progress {
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+.rating-breakdown .progress-bar {
+  background-color: #C69200;
+  border-radius: 5px;
+}
+.btn-write-review {
+  background-color: #F3B600;
+  color: white;
+  padding: 12px 20px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+.btn-write-review:hover {
+  background-color: #C69200;
+  color: white;
+}
+.card-header.border-0 {
+    border-bottom: none !important;
+}
