@@ -1,0 +1,40 @@
+<div class="card mt-4 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title mb-3">Write Your Review</h5>
+    <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label d-block">Your Rating:</label>
+        <div class="rating-stars" (mouseleave)="clearHoverRating()">
+          <i *ngFor="let star of stars"
+             class="bi star-icon"
+             [class.bi-star-fill]="star <= (hoveredRating || selectedRating)"
+             [class.bi-star]="star > (hoveredRating || selectedRating)"
+             [class.selected]="star <= selectedRating"
+             (mouseenter)="setHoverRating(star)"
+             (click)="setRating(star)">
+          </i>
+        </div>
+        <div *ngIf="reviewForm.get('rating')?.invalid && reviewForm.get('rating')?.touched" class="text-danger small mt-1">
+          Please select a rating.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="reviewComment" class="form-label">Your Comment:</label>
+        <textarea class="form-control"
+                  id="reviewComment"
+                  rows="3"
+                  placeholder="Share your experience..."
+                  formControlName="comment">
+        </textarea>
+        <div *ngIf="reviewForm.get('comment')?.invalid && reviewForm.get('comment')?.touched" class="text-danger small mt-1">
+          Please enter your comment.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-submit w-100" [disabled]="reviewForm.invalid">
+        Submit Review
+      </button>
+    </form>
+  </div>
+</div>
