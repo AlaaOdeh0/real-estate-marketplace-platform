@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
   imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
-
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'real-estate-marketplace-platform';
+}

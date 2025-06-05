@@ -1,0 +1,50 @@
+<div class="dropdown">
+  <a class="nav-link notification-bell" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-bell"></i> 
+    <span *ngIf="unreadCount > 0" class="badge rounded-pill notification-badge">
+      {{ unreadCount }}
+    </span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-end notification-dropdown-menu" aria-labelledby="notificationDropdown">
+    <li>
+      <div class="notification-header">
+        <h6>Notifications <span class="badge rounded-pill ms-1">{{ unreadCount }}</span></h6>
+        <a href="#" (click)="markAllAsRead(); $event.preventDefault()" [class.disabled]="unreadCount === 0">Mark all as read</a>
+      </div>
+    </li>
+
+    <div class="notification-list">
+      <ng-container *ngIf="notifications.length > 0; else noNotifs">
+        <li *ngFor="let n of notifications" class="notification-item-container">
+          <a [href]="n.link || '#'" (click)="performAction(n, $event)"
+             class="dropdown-item notification-card"
+             [class.unread]="!n.isRead">
+            <div class="d-flex align-items-start">
+              <div class="flex-shrink-0 notification-avatar-area me-3">
+                <img *ngIf="n.avatarUrl" [src]="n.avatarUrl" alt="User Avatar" class="notification-avatar-img">
+                <div *ngIf="!n.avatarUrl" class="notification-avatar-icon">
+                  <i class="fas fa-info-circle"></i> 
+                </div>
+              </div>
+              <div class="flex-grow-1 notification-content-area">
+                <div class="notification-text">
+                  <span class="notification-source">{{ n.sourceName }}:</span> {{ n.message }}
+                </div>
+                <small class="notification-timestamp">{{ n.timestamp }}</small>
+              </div>
+              <div *ngIf="!n.isRead" class="ms-2 notification-unread-dot"></div>
+            </div>
+          </a>
+        </li>
+      </ng-container>
+      <ng-template #noNotifs>
+        <li class="dropdown-item text-center text-muted py-3">No new notifications</li>
+      </ng-template>
+    </div>
+
+    <li>
+      
+    </li>
+  </ul>
+</div>

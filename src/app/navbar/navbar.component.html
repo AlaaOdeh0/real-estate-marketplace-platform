@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="height: 80px; font-weight: bold;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="assets/Logo.png" />
+      Alaya
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Buy" routerLinkActive="active" ariaCurrentWhenActive="page">Buy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Rent" routerLinkActive="active" ariaCurrentWhenActive="page">Rent</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Sell" routerLinkActive="active" ariaCurrentWhenActive="page">Sell</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item me-2">
+          <app-notification-bell></app-notification-bell>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="openLoginModal()">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="openModal()">Register</a>
+        </li>
+      </ul>
+
+      <div class="modal fade show d-block" tabindex="-1" *ngIf="showRegisterModal" style="background: rgba(0,0,0,0.5);" (click)="closeModal()">
+        <div class="modal-dialog modal-dialog-centered modal-lg" (click)="$event.stopPropagation()" style="max-width: 500px;">
+          <div class="modal-content" style="max-height: 90vh; overflow: hidden;">
+            <div class="modal-header sticky-top bg-white z-3">
+              <h5 class="modal-title">Welcome to Alaya</h5>
+              <button type="button" class="btn-close" (click)="closeModal()"></button>
+            </div>
+            <div class="modal-body overflow-auto" style="max-height: calc(90vh - 56px);">
+              <app-register (formSubmitted)="closeModal()"></app-register>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade show d-block" tabindex="-1" *ngIf="showLoginModal" style="background: rgba(0,0,0,0.5);" (click)="closeLoginModal()">
+        <div class="modal-dialog modal-dialog-centered modal-lg" (click)="$event.stopPropagation()" style="max-width: 500px;">
+          <div class="modal-content" style="max-height: 90vh; overflow: hidden;">
+            <div class="modal-header sticky-top bg-white z-3">
+              <h5 class="modal-title">Welcome to Alaya</h5>
+              <button type="button" class="btn-close" (click)="closeLoginModal()"></button>
+            </div>
+            <div class="modal-body overflow-auto" style="max-height: calc(90vh - 56px);">
+              <app-login (formSubmitted)="closeLoginModal()"></app-login>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
