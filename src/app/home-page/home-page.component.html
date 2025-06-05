@@ -1,2 +1,15 @@
-<button routerLink="/add" class="add-listing-button"> Add New Listing</button>
- <div class="listing-grid"> <app-property-card *ngFor="let listing of listings" [listing]="listing"> </app-property-card> </div>
+<div class="home-container">
+  <button class="add-btn" (click)="addProperty()">+ Add Property</button>
+
+  <div class="slider">
+    <div class="property-slider">
+   <app-property-card
+  *ngFor="let property of properties"
+  [property]="property"
+  (click)="navigateToProperty(property.id)">
+</app-property-card>
+
+
+    </div>
+  </div>
+</div>

@@ -1,23 +1,47 @@
-.listing-grid {
+.home-container {
+  padding: 20px;
+}
+
+.add-btn {
+  background-color: #28582c;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.slider {
+  overflow-x: auto;
+  white-space: nowrap; 
+  padding-bottom: 10px;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.slider::-webkit-scrollbar {
+  display: none; 
+}
+
+.property-slider {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-  }
-  .add-listing-button {
-    background-color: #6e9c65; 
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+  gap: 16px;
   
-  .add-listing-button:hover {
-    background-color: #405542; 
+  flex-wrap: nowrap; 
+}
+
+@media (max-width: 768px) {
+  .slider {
+    overflow-x: hidden; 
+    white-space: normal;
   }
-  
+
+  .property-slider {
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px; 
+  }
+
+ 
+}

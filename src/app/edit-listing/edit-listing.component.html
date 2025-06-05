@@ -1,23 +1,41 @@
-<form class="listing-form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
-  <h2>Edit Property</h2>
+<div class="edit-container">
+  <h2>Edit Property Listing</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <label>Title:</label>
+    <input formControlName="title" type="text" />
 
-  <label for="title">Title</label>
-  <input id="title" formControlName="title" />
+    <label>Price:</label>
+    <input formControlName="price" type="number" />
 
-  <label for="price">Price</label>
-  <input id="price" type="number" formControlName="price" />
+    <label>Description:</label>
+    <textarea formControlName="description"></textarea>
 
-  <label for="type">Type</label>
-  <input id="type" formControlName="type" />
+    <label>Address:</label>
+    <input formControlName="address" type="text" />
 
-  <label for="description">Description</label>
-  <textarea id="description" formControlName="description"></textarea>
+    <label>Status:</label>
+    <select formControlName="status">
+      <option value="active">Active</option>
+      <option value="rent">Rent</option>
+      <option value="buy">Buy</option>
+      <option value="sold">Sold</option>
+    </select>
 
-  <label for="editImage">Upload New Image</label>
-  <input type="file" id="editImage" (change)="onFileChange($event)" accept="image/*" />
-  <div *ngIf="imagePreview">
-    <img [src]="imagePreview" alt="Preview" width="200" />
-  </div>
+    <label>Bedrooms:</label>
+    <input formControlName="bedrooms" type="number" />
 
-  <button type="submit" [disabled]="!editForm.valid">Save Changes</button>
-</form>
+    <label>Bathrooms:</label>
+    <input formControlName="bathrooms" type="number" />
+
+    <label>Area (sqft):</label>
+    <input formControlName="area" type="number" />
+
+    <label>Images (comma-separated URLs):</label>
+    <input formControlName="images" type="text" />
+
+    <label>Features (comma-separated):</label>
+    <input formControlName="features" type="text" />
+
+    <button type="submit">Save Changes</button>
+  </form>
+</div>

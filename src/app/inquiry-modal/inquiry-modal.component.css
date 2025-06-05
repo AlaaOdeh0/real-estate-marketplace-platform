@@ -1,49 +1,61 @@
-.modal {
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  }
-  
-  .modal-content {
-  background: #FFFBE6;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(255, 255, 255);
+  z-index: 10;
+
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('https://raw.githubusercontent.com/AlaaOdeh0/real-estate-marketplace-platform/refs/heads/main/public/assets/openingImage.png');
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  max-width: 400px;
-  width: 100%;
-  }
-  
-  .modal-content h2 {
-  color: #283618;
-  margin-bottom: 1rem;
-  }
-  
-  input, textarea {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #d5dbc1;
-  border-radius: 6px;
-  font-size: 1rem;
-  }
-  
-  button {
-  background-color: #75a77c;
-  color: #fff;
+  z-index: 11;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  color:rgb(255, 255, 255);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content input,
+.modal-content textarea {
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+}
+
+.modal-content button {
+  padding: 0.8rem;
+  background-color: #478a47;
+  color: white;
   border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
+  margin-top: 1rem;
+  border-radius: 4px;
   cursor: pointer;
-  margin-right: 0.5rem;
-  }
-  
-  button:hover {
-  background-color: #32422e;
-  }
+}
+
+.modal-content button:hover {
+  background-color: #1e4718;
+}
+
+.disclaimer {
+  font-size: 0.75rem;
+  margin-top: 1rem;
+}

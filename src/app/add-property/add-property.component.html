@@ -1,23 +1,66 @@
-<form class="listing-form" [formGroup]="addForm" (ngSubmit)="onSubmit()">
-  <h2>Add New Property</h2>
-
-  <label for="title">Title</label>
-  <input id="title" formControlName="title" />
-
-  <label for="price">Price</label>
-  <input id="price" type="number" formControlName="price" />
-
-  <label for="type">Type</label>
-  <input id="type" formControlName="type" />
-
-  <label for="description">Description</label>
-  <textarea id="description" formControlName="description"></textarea>
-
-  <label for="image">Upload Image</label>
-  <input type="file" id="image" (change)="onFileChange($event)" accept="image/*" />
-  <div *ngIf="imagePreview">
-    <img [src]="imagePreview" alt="Preview" width="200" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+  <div class="form-header">
+    <h2>Add Property</h2>
+    <i class="fas fa-home home-icon"></i>
   </div>
 
-  <button type="submit" [disabled]="!addForm.valid">Add Property</button>
+  <div class="form-grid-container">
+    <div class="form-field-group">
+      <label>Title: <input formControlName="title" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Price: <input type="number" formControlName="price" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Description: <textarea formControlName="description"></textarea></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Address: <input formControlName="address" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Status:
+        <select formControlName="status">
+          <option value="active">Active</option>
+          <option value="rent">Rent</option>
+          <option value="buy">Buy</option>
+          <option value="sold">Sold</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Area (sqft): <input type="number" formControlName="area" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Bedrooms: <input type="number" formControlName="bedrooms" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Bathrooms: <input type="number" formControlName="bathrooms" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Agency: <input formControlName="agency" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Agent: <input formControlName="agent" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Features (comma separated): <input formControlName="features" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Image URLs (comma separated): <input formControlName="images" /></label>
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
 </form>

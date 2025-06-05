@@ -1,52 +1,56 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule, Router } from '@angular/router';
-import { ListingsService } from '../listings.service';
+import { Router } from '@angular/router';
+import { PropertyService } from '../services/property.services';
 
 @Component({
   selector: 'app-add-property',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.css']
 })
 export class AddPropertyComponent {
-  addForm: FormGroup;
-  imagePreview: string | null = null;
+  propertyForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
-    private listingsService: ListingsService
+    private propertyService: PropertyService,
+    private router: Router
   ) {
-    this.addForm = this.fb.group({
+    this.propertyForm = this.fb.group({
       title: ['', Validators.required],
-      price: [0, Validators.required],
-      type: ['', Validators.required],
-      description: ['', Validators.required]
+      price: [0, [Validators.required, Validators.min(1)]],
+      description: [''],
+      address: [''],
+      status: ['active', Validators.required],
+      area: [0],
+      bedrooms: [0],
+      bathrooms: [0],
+      mlsId: [''],
+      agency: [''],
+      agent: [''],
+      features: [''],
+      images: ['']
     });
   }
 
-  onFileChange(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreview = reader.result as string;
-      };
-      reader.readAsDataURL(file);
-    }
-  }
   onSubmit() {
-    if (this.addForm.valid) {
-      const formValue = this.addForm.value;
-      formValue.image = this.imagePreview || null;
-      this.listingsService.addListing(formValue);
-      this.router.navigate(['/']);
+    if (this.propertyForm.valid) {
+      const formValue = this.propertyForm.value;
+      const newProperty = {
+        ...formValue,
+        features: formValue.features.split(',').map((f: string) => f.trim()),
+        images: formValue.images.split(',').map((img: string) => img.trim()),
+        priceCut: { amount: 0, date: '' }
+      };
+      this.propertyService.addProperty(newProperty).subscribe(() => {
+        alert('Property added!');
+        this.router.navigate(['/']);
+      });
     } else {
-      console.log('Form is invalid:', this.addForm.value);
+      alert('Please fill out the required fields.');
     }
   }
-  
 }

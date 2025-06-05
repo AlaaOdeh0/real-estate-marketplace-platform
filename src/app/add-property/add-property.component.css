@@ -1,50 +1,110 @@
-.listing-form {
-  background-color: #ebe7d9; 
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 2rem auto;
-  font-family: 'Segoe UI', sans-serif;
+form {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-image: url('https://raw.githubusercontent.com/AlaaOdeh0/real-estate-marketplace-platform/refs/heads/main/public/assets/openingImage.png');
 }
 
-.listing-form h2 {
-  color: #02131a;
-  margin-bottom: 1.5rem;
+.form-header {
   text-align: center;
+  margin-bottom: 25px;
+  color: #000000;
 }
 
-.listing-form label {
+.form-header h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 2em;
+  color: #ffffff;
+   text-align: center;
+  margin-bottom: 25px;
+}
+
+.home-icon {
+  font-size: 2.5em;
+  color: #494126;
+}
+
+.form-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;
+}
+
+.form-field-group {
+    margin-bottom: 0;
+}
+
+label {
   display: block;
-  margin: 0.5rem 0 0.25rem;
-  color: #172227;
+  margin-bottom: 5px;
   font-weight: bold;
+  color: #ffffff;
 }
 
-.listing-form input,
-.listing-form select,
-.listing-form textarea {
+input,
+textarea,
+select {
   width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 0;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 1rem;
-  background-color: #f9f9f9;
+  background-color: #f0f0f0;
+  color: #000000;
 }
 
-.listing-form button {
-  background-color: #699264;
+textarea {
+  resize: vertical;
+}
+
+.form-field-group:has(textarea) {
+    grid-column: span 2;
+}
+
+
+button[type="submit"] {
+  display: block;
+  width: auto;
+  margin: 30px auto 0;
+  padding: 12px 25px;
+  background-color: #2f502c;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 1.1em;
   transition: background-color 0.3s ease;
 }
 
-.listing-form button:hover {
-  background-color: #364b33;
+button[type="submit"]:hover {
+  background-color: #70a367;
+}
+
+
+@media (max-width: 600px) {
+  .form-grid-container {
+    grid-template-columns: 1fr; 
+        gap: 15px; 
+  }
+
+  form {
+    padding: 15px; 
+    margin: 10px auto; 
+  }
+
+  .form-header h2 {
+    font-size: 1.6em; 
+  }
+
+  .home-icon {
+    font-size: 2em; 
+  }
+
+  .form-field-group:has(textarea) {
+    grid-column: span 1; 
+  }
 }

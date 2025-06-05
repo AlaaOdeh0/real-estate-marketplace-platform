@@ -1,10 +1,22 @@
-<div class="inquiry-form">
-    <h3>Buy Inquiry</h3>
-    <form (ngSubmit)="submitBuy()" #buyForm="ngForm">
-      <input type="text" name="name" [(ngModel)]="name" placeholder="Your Name" required />
-      <input type="email" name="email" [(ngModel)]="email" placeholder="Your Email" required />
-      <textarea name="message" [(ngModel)]="message" placeholder="Message" required></textarea>
-      <button type="submit" [disabled]="!buyForm.valid">Send Buy Inquiry</button>
+<div class="modal">
+  <div class="modal-content">
+    <h2>Buy Property</h2>
+    <form (ngSubmit)="submitForm()">
+      <input type="text" [(ngModel)]="name" name="name" placeholder="Your Name" required />
+      <input type="email" [(ngModel)]="email" name="email" placeholder="Your Email" required />
+      <input type="tel" [(ngModel)]="phone" name="phone" placeholder="Your Phone" required />
+
+      <select [(ngModel)]="paymentMethod" name="paymentMethod" required>
+        <option value="" disabled selected>Select Payment Method</option>
+        <option value="cash">Cash</option>
+        <option value="mortgage">Mortgage</option>
+        <option value="installments">Installments</option>
+      </select>
+
+      <div class="buttons">
+        <button type="submit">Submit</button>
+        <button type="button" class="cancel" (click)="closeForm()">Cancel</button>
+      </div>
     </form>
   </div>
-  
+</div>
