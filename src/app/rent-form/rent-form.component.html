@@ -1,0 +1,22 @@
+<div class="modal">
+  <div class="modal-content">
+    <h2>Rent Property</h2>
+    <form (ngSubmit)="submitForm()">
+      <input type="text" [(ngModel)]="name" name="name" placeholder="Your Name" required />
+      <input type="email" [(ngModel)]="email" name="email" placeholder="Your Email" required />
+      <input type="tel" [(ngModel)]="phone" name="phone" placeholder="Your Phone" required />
+
+      <select [(ngModel)]="rentalPeriod" name="rentalPeriod" required>
+        <option value="" disabled selected>Select Rental Period</option>
+        <option value="monthly">Monthly</option>
+        <option value="6months">6 Months</option>
+        <option value="yearly">Yearly</option>
+      </select>
+
+      <div class="buttons">
+        <button type="submit">Submit</button>
+        <button type="button" class="cancel" (click)="closeForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

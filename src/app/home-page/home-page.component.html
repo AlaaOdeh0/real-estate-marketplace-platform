@@ -1,0 +1,15 @@
+<div class="home-container">
+  <button class="add-btn" (click)="addProperty()">+ Add Property</button>
+
+  <div class="slider">
+    <div class="property-slider">
+   <app-property-card
+  *ngFor="let property of properties"
+  [property]="property"
+  (click)="navigateToProperty(property.id)">
+</app-property-card>
+
+
+    </div>
+  </div>
+</div>

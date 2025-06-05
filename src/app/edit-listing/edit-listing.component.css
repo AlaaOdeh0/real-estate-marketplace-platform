@@ -1,0 +1,43 @@
+.edit-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
+  background-image: url('https://raw.githubusercontent.com/AlaaOdeh0/real-estate-marketplace-platform/refs/heads/main/public/assets/openingImage.png');
+
+}
+
+.edit-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+form input, form textarea, form select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #274820;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3f7238;
+}
