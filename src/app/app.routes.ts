@@ -15,8 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-export const routes: Routes = [
-  // aya routes
+export const appRoutes: Routes = [
+  // aya appRoutes
   { path: '', component: HomePageComponent },
   { path: 'property/:id', component: PropertyDetailsComponent },
   { path: 'add', component: AddPropertyComponent },
@@ -26,7 +26,7 @@ export const routes: Routes = [
   { path: 'inquiry/:id', component: InquiryModalComponent },
   // { path: 'feedback', component: FeedbackComponent },
 
-  // main routes
+  // main appRoutes
   { path: 'Home', component: HomeComponent },
   { path: 'Login', component: LoginComponent },
   { path: 'Register', component: RegisterComponent },
