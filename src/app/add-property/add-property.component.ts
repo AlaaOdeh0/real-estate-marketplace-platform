@@ -1,57 +1,57 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PropertyService } from '../services/property.services';
 
 @Component({
   selector: 'app-add-property',
-  imports: [
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  templateUrl: './add-property.component.html',
   standalone: true,
-  styleUrl: './add-property.component.css'
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './add-property.component.html',
+  styleUrls: ['./add-property.component.css']
 })
 export class AddPropertyComponent {
+  propertyForm: FormGroup;
 
-  onImageSelected($event: Event) {
-    throw new Error('Method not implemented.');
-  }
-
-
-
-  @Output() propertyAdded = new EventEmitter<any>();
-
-  addPropertyForm: FormGroup;
-
-  constructor(private fb: FormBuilder) {
-    this.addPropertyForm = this.fb.group({
-      id: [null, Validators.required],
+  constructor(
+    private fb: FormBuilder,
+    private propertyService: PropertyService,
+    private router: Router
+  ) {
+    this.propertyForm = this.fb.group({
       title: ['', Validators.required],
-      description: ['', Validators.required],
-      seller_id: [null, Validators.required],
-      seller_name: ['', Validators.required],
-      location: ['', Validators.required],
-      area: [null, Validators.required],
-      status: ['', Validators.required],
+      price: [0, [Validators.required, Validators.min(1)]],
+      description: [''],
+      address: [''],
+      status: ['active', Validators.required],
+      area: [0],
+      bedrooms: [0],
+      bathrooms: [0],
+      mlsId: [''],
+      agency: [''],
+      agent: [''],
+      features: [''],
       images: ['']
     });
-
   }
 
-
   onSubmit() {
-    if (this.addPropertyForm.valid) {
-      const newUserData = {
-        ...this.addPropertyForm.value,
-
-
+    if (this.propertyForm.valid) {
+      const formValue = this.propertyForm.value;
+      const newProperty = {
+        ...formValue,
+        features: formValue.features.split(',').map((f: string) => f.trim()),
+        images: formValue.images.split(',').map((img: string) => img.trim()),
+        priceCut: { amount: 0, date: '' }
       };
-
-
-
-      this.propertyAdded.emit(newUserData);
-      this.addPropertyForm.reset();
-
+      this.propertyService.addProperty(newProperty).subscribe(() => {
+        alert('Property added!');
+        this.router.navigate(['/']);
+      });
+    } else {
+      alert('Please fill out the required fields.');
     }
   }
 

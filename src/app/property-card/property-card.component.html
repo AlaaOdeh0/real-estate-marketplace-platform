@@ -1,0 +1,10 @@
+<div class="card">
+  <img [src]="property.images[0]" alt="Property image" class="card-img" />
+  <div class="card-info">
+    <h2>{{ property.title }}</h2>
+    <h5>{{ property.bedrooms }} bds · {{ property.bathrooms }} ba · {{ property.area }} sqft</h5>
+    <p class="status">{{ property.status }}</p>
+    <p class="address">{{ property.address }}</p>
+    <small>{{ property.agency }}, {{ property.agent }}</small>
+  </div>
+</div>

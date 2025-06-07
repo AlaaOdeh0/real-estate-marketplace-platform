@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="details-wrapper" *ngIf="property">
+<div class="image-slider">
+<div class="slider-container">
+<div class="slider-track" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+<img *ngFor="let img of property.images" [src]="img" alt="Property image">
+</div>
+
+
+
+
+</div>
+    <div class="slider-controls">
+      <button (click)="prevSlide()">‹</button>
+      <button (click)="nextSlide()">›</button>
+    </div>
+  </div>
+
+  <div class="details-container">
+    <h2>{{ property.title }}</h2>
+
+    <div class="property-facts">
+      <div class="fact-item">
+        <div class="fact-icon">
+          <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="fact-text">Status: {{ property.status }}</div>
+      </div>
+
+
+
+      <div class="fact-item">
+        <div class="fact-icon">
+          <i class="fas fa-dollar-sign"></i>
+        </div>
+        <div class="fact-text">Price: ${{ property.price }}</div>
+      </div>
+
+
+
+      <div class="fact-item">
+        <div class="fact-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="fact-text">Address: {{ property.address }}</div>
+      </div>
+
+
+
+      <div class="fact-item">
+        <div class="fact-icon">
+          <i class="fas fa-tag"></i>
+        </div>
+
+
+
+        <div class="fact-text">MLS ID: {{ property.mlsId }}</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-icon">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="fact-text">Agent: {{ property.agent }} ({{ property.agency }})</div>
+      </div>
+
+
+
+      <div class="fact-item">
+        <div class="fact-icon">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <div class="fact-text">Description: {{ property.description }}</div>
+      </div>
+    </div>
+
+
+    
+    <div class="buttons">
+      <button (click)="confirmDelete()">Delete</button>
+      <button (click)="navigateToEdit()">Edit</button>
+      <button (click)="openInquiry()">Contact Agent</button>
+      <button class="feedback-button" (click)="openFeedback()">Leave Feedback</button>
+      <button (click)="router.navigate(['/rent', property.id])">Rent</button>
+      <button (click)="router.navigate(['/buy', property.id])">Buy</button>
+    </div>
+  </div>
+</div>

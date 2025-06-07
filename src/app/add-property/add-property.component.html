@@ -1,77 +1,67 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+  <div class="form-header">
+    <h2>Add Property</h2>
+    <i class="fas fa-home home-icon"></i>
+  </div>
 
-<button type="button" class="btn-custom1 " data-bs-toggle="modal" data-bs-target="#exampleModal">
-  <i class="fa-solid fa-circle-plus"></i>
-</button>
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-
-      <form [formGroup]="addPropertyForm" (ngSubmit)="onSubmit()">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Property</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <div class="modal-body">
-          <div class="mb-3">
-            <label for="id" class="form-label">ID:</label>
-            <input id="id" type="number" formControlName="id" class="form-control" />
-
-          </div>
-
-          <div class="mb-3">
-            <label for="images" class="form-label">Image:</label>
-            <input type="file" (change)="onImageSelected($event)" formControlName="images"  class="form-control" accept="image/*">
-          </div>
-          <div class="mb-3">
-            <label for="title" class="form-label">Title:</label>
-            <input id="title" type="text" formControlName="title" class="form-control" />
-          </div>
-          <div class="mb-3">
-            <label for="description" class="form-label">Description:</label>
-            <input id="description" type="text" formControlName="description" class="form-control" />
-          </div>
-          <div class="mb-3">
-            <label for="seller-id" class="form-label">Seller-id:</label>
-            <input id="seller-id" type="number" formControlName="seller_id" class="form-control" />
-
-          </div>
-          <div class="mb-3">
-            <label for="seller_name" class="form-label">Seller_name:</label>
-            <input id="seller_name" type="text" formControlName="seller_name" class="form-control" />
-
-          </div>
-          <div class="mb-3">
-            <label for="location" class="form-label">Location:</label>
-            <input id="location" type="text" formControlName="location" class="form-control" />
-
-          </div>
-          <div class="mb-3">
-            <label for="area" class="form-label">Area:</label>
-            <input id="area" type="number" formControlName="area" class="form-control" />
-
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Status:</label>
-            <select formControlName="status" class="form-control">
-              <option value="" disabled selected>Choose status</option>
-              <option value="available">Available</option>
-              <option value="sold">Sold</option>
-              <option value="pending">Pending</option>
-
-            </select>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-success" [disabled]="!addPropertyForm.valid" data-bs-dismiss="modal">Submit</button>
-        </div>
-      </form>
+  <div class="form-grid-container">
+    <div class="form-field-group">
+      <label>Title: <input formControlName="title" /></label>
     </div>
 
+    <div class="form-field-group">
+      <label>Price: <input type="number" formControlName="price" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Description: <textarea formControlName="description"></textarea></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Address: <input formControlName="address" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Status:
+        <select formControlName="status">
+          <option value="active">Active</option>
+          <option value="rent">Rent</option>
+          <option value="buy">Buy</option>
+          <option value="sold">Sold</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Area (sqft): <input type="number" formControlName="area" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Bedrooms: <input type="number" formControlName="bedrooms" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Bathrooms: <input type="number" formControlName="bathrooms" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Agency: <input formControlName="agency" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Agent: <input formControlName="agent" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Features (comma separated): <input formControlName="features" /></label>
+    </div>
+
+    <div class="form-field-group">
+      <label>Image URLs (comma separated): <input formControlName="images" /></label>
+    </div>
   </div>
-</div>
+
+  <button type="submit">Submit</button>
+</form>
 

@@ -1,0 +1,13 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal-content">
+  <h2>Contact Agent</h2>
+  <form (ngSubmit)="submitInquiry()" #inquiryForm="ngForm">
+    <input type="text" [(ngModel)]="name" name="name" placeholder="Your Name" required />
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Your Email" required />
+    <textarea [(ngModel)]="message" name="message" placeholder="Message..." required></textarea>
+    <button type="submit">Contact Agent</button>
+  </form>
+  <p class="disclaimer">
+    By pressing Contact agent, you agree that Alaya Group and its affiliates, and real estate professionals may call/text you about your inquiry, which may involve use of automated means and prerecorded/artificial voices. You don’t need to consent as a condition of buying any property, goods or services. Message/data rates may apply. You also agree to our Terms of Use. Alaya does not endorse any real estate professionals. We may share information about your recent and future site activity with your agent to help them understand what you’re looking for in a home.
+  </p>
+</div>
