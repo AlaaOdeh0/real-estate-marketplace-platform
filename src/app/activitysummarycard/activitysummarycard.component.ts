@@ -4,6 +4,7 @@ import {Component, Input} from '@angular/core';
   selector: 'app-activitysummarycard',
   imports: [],
   templateUrl: './activitysummarycard.component.html',
+  standalone: true,
   styleUrl: './activitysummarycard.component.css'
 })
 export class ActivitysummarycardComponent {

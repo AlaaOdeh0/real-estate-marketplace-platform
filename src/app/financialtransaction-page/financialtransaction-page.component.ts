@@ -16,7 +16,7 @@ declare var bootstrap: any;
     UpdateTransactionComponent,
     ReactiveFormsModule
 
-    // UpdateTransactionComponent
+    
   ],
   templateUrl: './financialtransaction-page.component.html',
   styleUrl: './financialtransaction-page.component.css'

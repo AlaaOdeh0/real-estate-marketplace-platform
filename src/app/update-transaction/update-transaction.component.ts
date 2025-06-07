@@ -1,4 +1,4 @@
-import {Component, EventEmitter, input, Input, output, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 
 declare var bootstrap: any;

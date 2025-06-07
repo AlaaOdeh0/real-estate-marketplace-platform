@@ -14,6 +14,7 @@ import {AddPropertyComponent} from '../add-property/add-property.component';
 
   ],
   templateUrl: './realestate-page.component.html',
+  standalone: true,
   styleUrl: './realestate-page.component.css'
 })
 export class RealestatePageComponent {

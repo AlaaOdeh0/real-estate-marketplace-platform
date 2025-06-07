@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { NgIf, NgForOf } from '@angular/common';
 
 @Component({
-  selector: 'app-userrequest',
-  imports: [
-    NgForOf,
-    NgIf
-  ],
-  templateUrl: './userrequest.component.html',
-  styleUrl: './userrequest.component.css'
+    selector: 'app-userrequest',
+    imports: [
+        NgForOf,
+        NgIf
+    ],
+    templateUrl: './userrequest.component.html',
+    standalone: true,
+    styleUrl: './userrequest.component.css'
 })
 export class UserrequestComponent {
   newusers=[{

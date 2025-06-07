@@ -13,8 +13,9 @@ import { AddUserComponent } from "../add-user/add-user.component";
     UserrequestComponent,
     ActivitysummarycardComponent,
 
-],
+  ],
   templateUrl: './dashboard.component.html',
+  standalone: true,
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {

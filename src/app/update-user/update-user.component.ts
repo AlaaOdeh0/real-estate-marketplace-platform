@@ -9,7 +9,8 @@ declare var bootstrap: any;
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './update-user.component.html',
-  styleUrl: './update-user.component.css'
+  styleUrls: ['./update-user.component.css']
+
 })
 export class UpdateUserComponent {
   @Input() user: any;

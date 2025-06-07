@@ -3,11 +3,12 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 
 @Component({
   selector: 'app-add-transaction',
-    imports: [
-        FormsModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './add-transaction.component.html',
+  standalone: true,
   styleUrl: './add-transaction.component.css'
 })
 export class AddTransactionComponent {

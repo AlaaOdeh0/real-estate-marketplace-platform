@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import {FormGroup, ReactiveFormsModule, Validators, FormBuilder, FormsModule} from '@angular/forms';
 @Component({
   selector: 'app-add-user',
-  imports: [CommonModule,ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './add-user.component.html',
+  standalone: true,
   styleUrl: './add-user.component.css'
 })
 

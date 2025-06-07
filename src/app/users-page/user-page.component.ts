@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {NgForOf, NgIf} from '@angular/common';
-import { AddUserComponent } from "../add-user/add-user.component";
-import { CommonModule } from '@angular/common';
+import {Component} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CommonModule, NgForOf} from '@angular/common';
+import {AddUserComponent} from "../add-user/add-user.component";
 import {UpdateUserComponent} from '../update-user/update-user.component';
+
+
 declare var bootstrap: any;
 
 @Component({
@@ -14,8 +15,9 @@ declare var bootstrap: any;
     NgForOf,
     ReactiveFormsModule,
     AddUserComponent,
-    CommonModule,
-    UpdateUserComponent
+    UpdateUserComponent,
+    CommonModule
+
   ],
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.css'
@@ -120,9 +122,7 @@ export class UserPageComponent {
 
   applyFilters() {
     return this.user.filter(user => {
-      const typeMatch = this.selectedType === 'all' || user.type === this.selectedType;
-
-      return typeMatch;
+      return this.selectedType === 'all' || user.type === this.selectedType;
     });
   }
 

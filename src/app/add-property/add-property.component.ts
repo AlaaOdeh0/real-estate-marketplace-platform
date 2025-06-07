@@ -8,6 +8,7 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
     ReactiveFormsModule
   ],
   templateUrl: './add-property.component.html',
+  standalone: true,
   styleUrl: './add-property.component.css'
 })
 export class AddPropertyComponent {
