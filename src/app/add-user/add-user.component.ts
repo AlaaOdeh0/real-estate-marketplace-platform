@@ -13,15 +13,13 @@ export class AddUserComponent {
 
 
 
-
-  onImageSelected($event: Event) {
-    throw new Error('Method not implemented.');
-  }
-
+onImageSelected($event: Event) {
+throw new Error('Method not implemented.');
+}
 
 
-  @Output() userAdded = new EventEmitter<any>();
 
+@Output() userAdded = new EventEmitter<any>();
 
   adduserForm: FormGroup;
 

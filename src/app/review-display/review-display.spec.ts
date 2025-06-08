@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReviewDisplayComponent } from './review-display';
+import { ReviewDisplay } from './review-display';
 
 describe('ReviewDisplay', () => {
-  let component: ReviewDisplayComponent;
-  let fixture: ComponentFixture<ReviewDisplayComponent>;
+  let component: ReviewDisplay;
+  let fixture: ComponentFixture<ReviewDisplay>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReviewDisplayComponent]
+      imports: [ReviewDisplay]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ReviewDisplayComponent);
+    fixture = TestBed.createComponent(ReviewDisplay);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,28 +5,33 @@
     <br>
     <p>manage everything in one place</p>
   </div>
+    <div class="container ">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <app-activitysummarycard [title]="'Active user'" [count]="50" ></app-activitysummarycard>
+        </div>
+        <div class="col-12 col-md-4">
+          <app-activitysummarycard [title]="'Number of properties'" [count]="100"></app-activitysummarycard>
+        </div>
+        <div class="col-12 col-md-4">
+          <app-activitysummarycard [title]="'income'" [count]="5200"></app-activitysummarycard>
+        </div>
 
-  <div class="container ">
+
+      </div>
+    </div>
+
+
     <div class="row">
- //card
 
-    </div>
-  </div>
+      <div class="col-6 sm-12 " id="user-request">
+        <app-userrequest></app-userrequest>
 
-
-  <div class="row">
-
-    <div class="col-6 sm-12 " id="user-request">
-      <app-userrequest></app-userrequest>
-
+      </div>
 
     </div>
 
   </div>
-
-
-</div>
-
 
 
 

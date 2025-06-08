@@ -1,49 +1,35 @@
-
-
 .sidebar {
-  width: 7rem;
-  height: 100%;
-  position: relative;
+  width: 250px;
   background-color: #FAEDCD;
   color: #5C4B51;
+  padding: 1rem;
+height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
+  position: relative;
   overflow-y: auto;
+  transition: width 0.3s ease;
+
 }
 
-.sidebar h2 {
-  font-size: 1.2rem;
-  text-align: center;
-  padding-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
+.main-content {
+  margin-left: 250px;
 }
 
 .sidebar ul {
   list-style-type: none;
   padding: 0;
-
-  margin: 0;
 }
 
 .sidebar ul li {
-  text-align: center;
-  margin-bottom: 1.2rem;
+  margin-bottom: 30px;
 }
 
 .sidebar ul li a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
   color: #5C4B51;
-  padding: 0.5rem 0;
-  font-size: 1rem;
-
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
   border-radius: 8px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -53,23 +39,26 @@
   color: #3E2C41;
 }
 
+.sidebar ul li a:hover svg {
+  fill: #3E2C41;
+}
 
 .nav-link.active {
   background-color: rgba(0, 0, 0, 0.1);
-  color: #4b3521 !important;
+  color:#4b3521 !important;
   border-left: 3px solid #422205;
 }
 
-.sidebar i {
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 1.5rem;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.3rem;
-  background-color: transparent;
-  color: #5C4B51;
+i {
+  text-align: center;
+  width: 3rem;
+  min-width: 3rem;
+  border-radius: 0.313rem;
+  padding: 0.313rem;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  border: none;
 }
+
 

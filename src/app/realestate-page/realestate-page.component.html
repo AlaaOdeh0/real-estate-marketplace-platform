@@ -1,10 +1,8 @@
-
-<button class="btn-add" (click)="addProperty()"><i class="fa-solid fa-circle-plus"></i></button>
+<!--<app-add-property (propertyAdded)="addProperty($event)" ></app-add-property>-->
 <div class="d-flex justify-content-between align-items-end flex-wrap mb-4 gap-3">
   <div class="filter-section">
     <label class="form-label fw-bold mb-1">Filter:</label>
-    <select [(ngModel)]="selectedType" (change)="loadProperties()" class="form-select">
-
+    <select [(ngModel)]="selectedType" (change)="applyFilters()" class="form-select">
       <option value="all">All</option>
       <option value="sold">Sold</option>
       <option value="available">Available</option>
@@ -17,18 +15,12 @@
     <input
       type="text"
       [(ngModel)]="searchText"
-
-      (input)="search()"
-
+      (input)="applySearch()"
       class="form-control"
       placeholder="Search "
     >
   </div>
 </div>
-
-<div class="table-responsive">
-
-
 <table class="table table-hover custom-table shadow-sm rounded">
   <thead class="table text-center align-middle">
   <tr>
@@ -47,18 +39,14 @@
   </thead>
 
   <tbody class="text-center align-middle">
-
-  <tr *ngFor="let listing of properties">
-    <td><strong>{{listing.id }}</strong></td>
-
+  <tr *ngFor="let user of applySearch()">
+    <td><strong>{{ user.id }}</strong></td>
 
 
     <td>
       <img
         class="m-3 rounded-circle"
-
-        [src]="listing.images"
-
+        [src]="user.images"
         alt="Image"
         width="70"
         height="70">
@@ -66,53 +54,43 @@
 
 
     <td class=" text-start ">
-
-      {{ listing.title }}
+      {{ user.title }}
     </td>
 
-    <td>{{ listing.price }}</td>
+    <td>{{ user.price }}</td>
 
     <td class="text-start">
-      <div style="white-space: normal;">{{ listing.description }}</div>
-    </td>
-
-    <td class="text-start">
-    {{listing.agency}}
-   </td>
-
-    <td class="text-start">
-    {{listing.agent}}
+      <div style="white-space: normal;">{{ user.description }}</div>
     </td>
 
     <td class="text-start">
-      <div style="white-space: normal;">{{ listing.address }}</div>
+      <div style="margin-left: 20px;">{{ user.seller_id }}</div>
     </td>
 
-
-    <td>{{ listing.area }}</td>
-    <td>
-      <strong>{{ listing.status }}</strong>
+    <td class="text-start">
+      <div style="white-space: normal;">{{ user.seller_name }}</div>
     </td>
+
+    <td class="text-start">
+      <div style="white-space: normal;">{{ user.location }}</div>
+    </td>
+
+    <td>{{ user.area }}</td>
 
     <td>
-      <div class="d-flex gap-2 justify-content-center">
+      <strong>{{ user.status }}</strong>
+    </td>
+
+    <td>
       <button
         type="button"
         class="btn btn-outline btn-sm"
-        (click)="confirmDelete(listing.id)">
+        (click)="DeleteUser(user.id)">
         <i class="fa-solid fa-trash"></i>
       </button>
-      <button  class="btn btn-outline btn-sm" (click)="navigateToEdit(listing.id)"> <i class="fa-regular fa-pen-to-square"></i></button>
-      </div>
     </td>
-
-
   </tr>
 
 
   </tbody>
 </table>
-
-
-</div>
-

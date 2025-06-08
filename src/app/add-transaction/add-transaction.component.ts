@@ -1,20 +1,18 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-add-transaction',
   imports: [
-
+    FormsModule,
     ReactiveFormsModule
   ],
-  standalone: true,
   templateUrl: './add-transaction.component.html',
-
+  standalone: true,
   styleUrl: './add-transaction.component.css'
 })
 export class AddTransactionComponent {
+
 
 
   @Output() transactionAdded = new EventEmitter<any>();

@@ -1,16 +1,8 @@
-
-import {Component, OnInit} from '@angular/core';
-
+import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
 import {AddUserComponent} from '../add-user/add-user.component';
 import {AddPropertyComponent} from '../add-property/add-property.component';
-
-import {Property} from '../models/property.model';
-import {ActivatedRoute, Router} from '@angular/router';
-import {PropertyService} from '../services/property.services';
-import {ListingsService} from '../listings.service';
-n
 
 @Component({
   selector: 'app-realestate-page',
@@ -18,80 +10,143 @@ n
     FormsModule,
     NgForOf,
 
-
-
-
+    AddPropertyComponent,
 
   ],
   templateUrl: './realestate-page.component.html',
   standalone: true,
   styleUrl: './realestate-page.component.css'
 })
+export class RealestatePageComponent {
+ realestate = [
+    {
+      id: 1,
+      title: "Luxury Apartment in Zamalek",
+      price: 2500000,
+      description: "Spacious 3-bedroom apartment with Nile view.",
+      images: ["/Dashboard/realestate1.png"],
+      seller_id: 1,
+      seller_name: "John Smith",
+      status: "available",
+      location: "Cairo - Zamalek",
+      area: 180
+    },
+    {
+      id: 2,
+      title: "Villa in New Cairo",
+      price: 5500000,
+      description: "Modern villa with private garden and pool.",
+      images: ["/Dashboard/realestate2.png"],
+      seller_id: 1,
+      seller_name: "Michael Johnson",
+      status: "sold",
+      location: "Cairo - New Cairo",
 
-export class RealestatePageComponent implements OnInit {
+      area: 350
+    },
+    {
+      id: 3,
+      title: "Sea View Apartment in North Coast",
+      price: 3200000,
+      description: "Direct beach access, fully furnished summer apartment.",
+      images: ["/Dashboard/realestate3.png"],
+      seller_id: 3,
+      seller_name: "Emily Davis",
+      status: "available",
+      location: "North Coast - Sidi Abdel Rahman",
+
+      area: 120
+    },
+    {
+      id: 4,
+      title: "Commercial Space in Downtown",
+      price: 4800000,
+      description: "Prime location for retail or office space.",
+      images: ["/Dashboard/realestate4.png"],
+      seller_id: 3,
+      seller_name: "Robert Wilson",
+      status: "pending",
+      location: "Cairo - Downtown",
+      area: 250
+    },
+    {
+      id: 5,
+      title: "Penthouse in Sheikh Zayed",
+      price: 6800000,
+      description: "Luxury penthouse with panoramic views, smart home system.",
+      images: ["/Dashboard/realestate5.png"],
+      seller_id: 2,
+      seller_name: "Sarah Thompson",
+      status: "available",
+      location: "Giza - Sheikh Zayed",
+
+      area: 300
+
+    },
+    {
+      id: 6,
+      title: "Traditional House in Luxor",
+      price: 1200000,
+      description: "Authentic Egyptian house near historical sites.",
+      images: ["/Dashboard/realestate6.png"],
+      seller_id: 4,
+      seller_name: "David Brown",
+      status: "available",
+      location: "Luxor - City Center",
+      area: 200
+    }
+  ];
 
 
-
-
+  filteredUsers = this.realestate;
   searchText: string = "";
   selectedType: string = 'all';
 
+  applyFilters() {
+    return this.realestate.filter(item => {
+      const typeMatch = this.selectedType === 'all' || item.status === this.selectedType;
+      return typeMatch;
+    });
+  }
 
+  applySearch() {
+    const filtered = this.applyFilters();
 
-  loadProperties(): void {
-    this.propertyService.getFilteredProperties(this.selectedType).subscribe(data => {
-      this.properties = data;
+    if (!this.searchText) return filtered;
+
+    const searchLower = this.searchText.toLowerCase();
+
+    return filtered.filter(property => {
+      return (
+        property.title.toLowerCase().includes(searchLower) ||
+        property.status.toLowerCase().includes(searchLower) ||
+        property.description.toLowerCase().includes(searchLower) ||
+        property.seller_name.toLowerCase().includes(searchLower) ||
+        property.id.toString().includes(searchLower) ||
+        property.price.toString().includes(searchLower) ||
+        property.area.toString().includes(searchLower) ||
+        property.seller_id.toString().includes(searchLower)
+      );
     });
   }
 
 
 
-
-  search(): void {
-    this.propertyService.searchProperties(this.searchText).subscribe(data => {
-      this.properties = data;
-    });
+  DeleteUser(id: number) {
+    this.realestate = this.realestate.filter(u => u.id !== id);
   }
 
+  addProperty(PropertyData: any) {
+    const lastId = this.realestate.length > 0
+      ? Math.max(...this.realestate.map(u => u.id))
+      : 0;
 
+    const newUser = {
+      ...PropertyData,
+      id: lastId + 1,
+      images: [PropertyData.image || "/Dashboard/default.png"]
+    };
 
-
-
-
-
-
-  properties: Property[] = [];
-
-  constructor(
-    private propertyService: PropertyService,
-    public router: Router
-  ) {
-  }
-
-  ngOnInit(): void {
-    this.propertyService.getProperties().subscribe((data: Property[]) => {
-      this.properties = data;
-    });
-  }
-
-  navigateToEdit(propertyId: string): void {
-    this.router.navigate(['/edit-listing', propertyId]);
-  }
-
-  confirmDelete(propertyId: string): void {
-    const confirmed = confirm('Are you sure you want to delete this property?');
-    if (confirmed) {
-      this.propertyService.deleteProperty(propertyId).subscribe(() => {
-        alert('Property deleted!');
-
-        this.properties = this.properties.filter(p => p.id !== propertyId);
-      });
-    }
-  }
-
-  addProperty(): void {
-    this.router.navigate(['/add']);
+    this.realestate.push(newUser);
   }
 }
-
-

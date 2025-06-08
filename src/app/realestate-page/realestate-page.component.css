@@ -1,39 +1,31 @@
 
 .table tbody tr:hover {
+    background-color: #dec490; 
+  }
+  strong{
+    color: #927129;
+  }
+  button {
+   
+     
+    background-color:bisque;
+    color: rgb(0, 0, 0)
 
-  background-color: #dec490;
-}
-strong{
-  color: #927129;
-}
-button {
-
-
-  background-color:bisque;
-  color: rgb(0, 0, 0)
-
-}
-
+ }
+ 
 button:hover {
-  border-color:rgb(196, 181, 147);
-  background-color: #980000;
-  color:aliceblue; }
+   border-color:rgb(196, 181, 147); 
+   background-color: #980000;
+   color:aliceblue; }
 
-select.form-select:hover,input.form-control:hover  {
-
-  box-shadow: 0 0 5px rgb(224, 181, 88);
-}
-select.form-select:focus,input.form-control:focus {
-  border-color: rgb(235, 211, 160);
-  box-shadow: 0 0 0 0.1rem rgba(230, 220, 179, 0.969);
-}
-strong{
-  color:#af996c
-}
-.btn-add {
-  border: none;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: #dec490;
-}
+   select.form-select:hover,input.form-control:hover  {
+  
+    box-shadow: 0 0 5px rgb(224, 181, 88);
+  }
+  select.form-select:focus,input.form-control:focus {
+    border-color: rgb(235, 211, 160);
+    box-shadow: 0 0 0 0.1rem rgba(230, 220, 179, 0.969);
+  }
+  strong{
+    color:#af996c
+  }

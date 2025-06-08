@@ -2,8 +2,6 @@
   border: none;
   height: 40px;
   width: 40px;
-
-  border-radius: 50%;
-
+  border-radius: 50%; /* هذا يجعل الزر دائري */
   background-color: #dec490;
 }

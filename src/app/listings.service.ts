@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import {Property} from './models/property.model';
 
 @Injectable({
 providedIn: 'root'
@@ -33,5 +31,4 @@ if (index !== -1) this.listings[index] = { ...updated, id };
 getListingById(id: number) {
 return this.listings.find(l => l.id === id);
 }
-
 }
