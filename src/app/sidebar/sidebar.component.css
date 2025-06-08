@@ -1,4 +1,5 @@
 
+
 .sidebar {
   width: 7rem;
   height: 100%;
@@ -18,11 +19,13 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
 }
 
 .sidebar ul {
   list-style-type: none;
   padding: 0;
+
   margin: 0;
 }
 
@@ -40,6 +43,7 @@
   color: #5C4B51;
   padding: 0.5rem 0;
   font-size: 1rem;
+
   border-radius: 8px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -48,6 +52,7 @@
   background-color: #DDB892;
   color: #3E2C41;
 }
+
 
 .nav-link.active {
   background-color: rgba(0, 0, 0, 0.1);

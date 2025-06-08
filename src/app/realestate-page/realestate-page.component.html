@@ -1,8 +1,10 @@
+
 <button class="btn-add" (click)="addProperty()"><i class="fa-solid fa-circle-plus"></i></button>
 <div class="d-flex justify-content-between align-items-end flex-wrap mb-4 gap-3">
   <div class="filter-section">
     <label class="form-label fw-bold mb-1">Filter:</label>
     <select [(ngModel)]="selectedType" (change)="loadProperties()" class="form-select">
+
       <option value="all">All</option>
       <option value="sold">Sold</option>
       <option value="available">Available</option>
@@ -15,13 +17,17 @@
     <input
       type="text"
       [(ngModel)]="searchText"
+
       (input)="search()"
+
       class="form-control"
       placeholder="Search "
     >
   </div>
 </div>
+
 <div class="table-responsive">
+
 
 <table class="table table-hover custom-table shadow-sm rounded">
   <thead class="table text-center align-middle">
@@ -41,14 +47,18 @@
   </thead>
 
   <tbody class="text-center align-middle">
+
   <tr *ngFor="let listing of properties">
     <td><strong>{{listing.id }}</strong></td>
+
 
 
     <td>
       <img
         class="m-3 rounded-circle"
+
         [src]="listing.images"
+
         alt="Image"
         width="70"
         height="70">
@@ -56,6 +66,7 @@
 
 
     <td class=" text-start ">
+
       {{ listing.title }}
     </td>
 
@@ -95,10 +106,13 @@
       </div>
     </td>
 
+
   </tr>
 
 
   </tbody>
 </table>
 
+
 </div>
+

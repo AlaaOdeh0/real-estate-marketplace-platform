@@ -1,12 +1,16 @@
+
 import {Component, OnInit} from '@angular/core';
+
 import {FormsModule} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
 import {AddUserComponent} from '../add-user/add-user.component';
 import {AddPropertyComponent} from '../add-property/add-property.component';
+
 import {Property} from '../models/property.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PropertyService} from '../services/property.services';
 import {ListingsService} from '../listings.service';
+n
 
 @Component({
   selector: 'app-realestate-page',
@@ -16,11 +20,14 @@ import {ListingsService} from '../listings.service';
 
 
 
+
+
   ],
   templateUrl: './realestate-page.component.html',
   standalone: true,
   styleUrl: './realestate-page.component.css'
 })
+
 export class RealestatePageComponent implements OnInit {
 
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgIf, NgForOf } from '@angular/common';
 
 @Component({
+
   selector: 'app-userrequest',
   imports: [
     NgForOf,
@@ -10,6 +11,7 @@ import { NgIf, NgForOf } from '@angular/common';
   templateUrl: './userrequest.component.html',
   standalone: true,
   styleUrl: './userrequest.component.css'
+
 })
 export class UserrequestComponent {
   newusers=[{
@@ -30,7 +32,9 @@ export class UserrequestComponent {
       email:'lara@gmail.com',
       status:'pending',
     }]
+
   users = this.showusers();
+
 
 
   showusers() {

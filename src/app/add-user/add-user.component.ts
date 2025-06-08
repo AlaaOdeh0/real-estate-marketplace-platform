@@ -13,6 +13,7 @@ export class AddUserComponent {
 
 
 
+
   onImageSelected($event: Event) {
     throw new Error('Method not implemented.');
   }
@@ -20,6 +21,7 @@ export class AddUserComponent {
 
 
   @Output() userAdded = new EventEmitter<any>();
+
 
   adduserForm: FormGroup;
 
