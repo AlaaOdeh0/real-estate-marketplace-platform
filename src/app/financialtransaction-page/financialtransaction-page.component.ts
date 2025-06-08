@@ -16,7 +16,6 @@ declare var bootstrap: any;
     UpdateTransactionComponent,
     ReactiveFormsModule
 
-    
   ],
   templateUrl: './financialtransaction-page.component.html',
   styleUrl: './financialtransaction-page.component.css'
@@ -74,7 +73,9 @@ export class FinancialtransactionPageComponent {
     }
 
 
+
 ];
+
 
   searchText: string = "";
   selectedType: string = 'all';
@@ -131,7 +132,9 @@ export class FinancialtransactionPageComponent {
   }
 
   selectedTransaction: any = null;
- editForm:FormGroup;
+
+  editForm:FormGroup;
+
   constructor(private fb: FormBuilder) {
     this.editForm = this.fb.group({
       transactionId: ['', Validators.required],

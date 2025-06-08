@@ -1,23 +1,25 @@
 <table cellpadding="10" cellspacing="0" class="styled-table" style="width: 100%;">
   <thead>
-    <tr>
-      <th style="width: 30%;">Name</th>
-      <th style="width: 40%;">Email</th>
-      <th style="width: 30%;">Action</th>
-    </tr>
+
+  <tr>
+    <th style="width: 30%;">Name</th>
+    <th style="width: 40%;">Email</th>
+    <th style="width: 30%;">Action</th>
+  </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of showusers()">
-      <td>{{ user.name }}</td>
-      <td>{{ user.email }}</td>
-      <td>
-        <button type="button" class="btn btn-outline btn-custom m-1" (click)="approveUser(user.id)"><i class="fa-solid fa-person-circle-check"></i></button>
-        <button type="button" class="btn btn-outline btn-custom1" (click)="rejectUser(user.id)"><i class="fa-solid fa-person-circle-xmark"></i></button>
-      </td>
-    </tr>
+  <tr *ngFor="let user of showusers()">
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>
+      <button type="button" class="btn btn-outline btn-custom m-1" (click)="approveUser(user.id)"><i class="fa-solid fa-person-circle-check"></i></button>
+      <button type="button" class="btn btn-outline btn-custom1" (click)="rejectUser(user.id)"><i class="fa-solid fa-person-circle-xmark"></i></button>
+    </td>
+  </tr>
 
-    <tr *ngIf="showusers().length === 0">
-      <td colspan="3" style="text-align: center;">No new user</td>
-    </tr>
+  <tr *ngIf="showusers().length === 0">
+    <td colspan="3" style="text-align: center;">No new user</td>
+  </tr>
+
   </tbody>
 </table>

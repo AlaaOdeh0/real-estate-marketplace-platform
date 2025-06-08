@@ -91,6 +91,7 @@ export class PropertyService {
     return of(this.properties);
   }
 
+
   getPropertyById(id: string): Observable<Property | undefined> {
     const property = this.properties.find(p => p.id === id);
     return of(property);
@@ -132,4 +133,29 @@ export class PropertyService {
     this.properties = this.properties.filter(p => p.id !== id);
     return of(this.properties.length < initialLength);
   }
+  getFilteredProperties(status: string): Observable<Property[]> {
+    if (status === 'all') {
+      return of(this.properties);
+    }
+    const filtered = this.properties.filter(p => p.status.toLowerCase() === status.toLowerCase());
+    return of(filtered);
+  }
+  searchProperties(searchText: string): Observable<Property[]> {
+    const text = searchText.toLowerCase();
+
+    const filtered = this.properties.filter(property => {
+      return (
+        property.title.toLowerCase().includes(text) ||
+        property.status.toLowerCase().includes(text) ||
+        property.description.toLowerCase().includes(text) ||
+        property.agent.toLowerCase().includes(text) ||
+        property.id.toString().includes(text) ||
+        property.price.toString().includes(text) ||
+        property.area.toString().includes(text)
+      );
+    });
+
+    return of(filtered);
+  }
+
 }

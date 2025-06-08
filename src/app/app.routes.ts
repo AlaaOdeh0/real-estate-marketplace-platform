@@ -20,6 +20,11 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {LayoutDashboardComponent} from './layout-dashboard/layout-dashboard.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {FinancialtransactionPageComponent} from './financialtransaction-page/financialtransaction-page.component';
+import {RealestatePageComponent} from './realestate-page/realestate-page.component';
+import {UsersPageComponent} from './users-page/users-page.component';
 
 
 
@@ -36,6 +41,8 @@ export const appRoutes: Routes = [
   { path: 'rent/:id', component: RentFormComponent },
   { path: 'buy/:id', component: BuyFormComponent },
   { path: 'inquiry/:id', component: InquiryModalComponent },
+  { path: 'property-details/:id', component: PropertyDetailsComponent },
+
   // { path: 'feedback', component: FeedbackComponent },
 
   // main appRoutes
@@ -48,6 +55,18 @@ export const appRoutes: Routes = [
     children: [
       { path: '', component: DashboardComponent },
       { path: 'users-page', component: UserPageComponent },
+      { path: 'financialtransaction-page', component: FinancialtransactionPageComponent },
+      { path: 'realestate-page', component: RealestatePageComponent }
+    ]
+  }
+
+  //Raghad routes
+  {
+    path: 'Admin',
+    component:LayoutDashboardComponent,
+    children: [
+      { path: 'main-dashboard', component: DashboardComponent },
+      { path: 'users-page', component:UsersPageComponent },
       { path: 'financialtransaction-page', component: FinancialtransactionPageComponent },
       { path: 'realestate-page', component: RealestatePageComponent }
     ]
