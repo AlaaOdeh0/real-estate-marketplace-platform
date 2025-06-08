@@ -1,0 +1,56 @@
+
+<button type="button" class="btn-custom1 " data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fa-solid fa-user-plus"></i>
+</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <form [formGroup]="adduserForm" (ngSubmit)="onSubmit()">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add User</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input id="name" type="text" formControlName="name" class="form-control" />
+
+          </div>
+
+          <div class="mb-3">
+            <label for="images" class="form-label">Image:</label>
+            <input type="file" (change)="onImageSelected($event)" formControlName="images"  class="form-control" accept="image/*">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input id="email" type="text" formControlName="email" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="profilename" class="form-label">Profile Name:</label>
+            <input id="profilename" type="text" formControlName="profile" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="type" class="form-label">Type:</label>
+            <select id="type" formControlName="type" class="form-select">
+              <option value="" disabled selected>choice type of user</option>
+              <option value="admin">Admin</option>
+              <option value="buyer">buyer</option>
+              <option value="saller">seller</option>
+              <option value="agent">agent</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success" [disabled]="!adduserForm.valid" data-bs-dismiss="modal">Submit</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
