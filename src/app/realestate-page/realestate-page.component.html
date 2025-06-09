@@ -1,0 +1,104 @@
+<button class="btn-add" (click)="addProperty()"><i class="fa-solid fa-circle-plus"></i></button>
+<div class="d-flex justify-content-between align-items-end flex-wrap mb-4 gap-3">
+  <div class="filter-section">
+    <label class="form-label fw-bold mb-1">Filter:</label>
+    <select [(ngModel)]="selectedType" (change)="loadProperties()" class="form-select">
+      <option value="all">All</option>
+      <option value="sold">Sold</option>
+      <option value="available">Available</option>
+      <option value="pending">Pending</option>
+    </select>
+  </div>
+
+  <div class="search-section">
+    <label class="form-label fw-bold mb-1">Search:</label>
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      (input)="search()"
+      class="form-control"
+      placeholder="Search "
+    >
+  </div>
+</div>
+<div class="table-responsive">
+
+  <table class="table table-hover custom-table shadow-sm rounded">
+    <thead class="table text-center align-middle">
+    <tr>
+      <th >ID</th>
+      <th >Image</th>
+      <th >Title</th>
+      <th>Price</th>
+      <th style="width: 200px;">Description</th>
+      <th style="width: 300px;">Seller ID</th>
+      <th style="width: 300px;">Seller Name</th>
+      <th style="width: 200px;">Location</th>
+      <th>Area</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody class="text-center align-middle">
+    <tr *ngFor="let listing of properties">
+      <td><strong>{{listing.id }}</strong></td>
+
+
+      <td>
+        <img
+          class="m-3 rounded-circle"
+          [src]="listing.images"
+          alt="Image"
+          width="70"
+          height="70">
+      </td>
+
+
+      <td class=" text-start ">
+        {{ listing.title }}
+      </td>
+
+      <td>{{ listing.price }}</td>
+
+      <td class="text-start">
+        <div style="white-space: normal;">{{ listing.description }}</div>
+      </td>
+
+      <td class="text-start">
+        {{listing.agency}}
+      </td>
+
+      <td class="text-start">
+        {{listing.agent}}
+      </td>
+
+      <td class="text-start">
+        <div style="white-space: normal;">{{ listing.address }}</div>
+      </td>
+
+
+      <td>{{ listing.area }}</td>
+      <td>
+        <strong>{{ listing.status }}</strong>
+      </td>
+
+      <td>
+        <div class="d-flex gap-2 justify-content-center">
+          <button
+            type="button"
+            class="btn btn-outline btn-sm"
+            (click)="confirmDelete(listing.id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          <button  class="btn btn-outline btn-sm" (click)="navigateToEdit(listing.id)"> <i class="fa-regular fa-pen-to-square"></i></button>
+        </div>
+      </td>
+
+    </tr>
+
+
+    </tbody>
+  </table>
+
+</div>

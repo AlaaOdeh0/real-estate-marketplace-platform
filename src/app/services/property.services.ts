@@ -22,12 +22,12 @@ export class PropertyService {
       agency: 'City Realty',
       agent: 'Alice Johnson',
       images: [
-   'https://images.trvl-media.com/lodging/34000000/33700000/33696700/33696682/57ddd0c6.jpg?impolicy=resizecrop&rw=1200&ra=fit',
-  'https://images.trvl-media.com/lodging/34000000/33700000/33696700/33696682/9fc626e0.jpg?impolicy=resizecrop&rw=1200&ra=fit',
-  'https://images.trvl-media.com/lodging/34000000/33700000/33696700/33696682/36d2def1.jpg?impolicy=resizecrop&rw=1200&ra=fit',
-  'https://images.trvl-media.com/lodging/34000000/33700000/33696700/33696682/a281cbb9.jpg?impolicy=resizecrop&rw=1200&ra=fit',
-  'https://images.trvl-media.com/lodging/34000000/33700000/33696700/33696682/a480e83c.jpg?impolicy=resizecrop&rw=1200&ra=fit'
-],
+        'https://images.trvl-media.com/lodging/34000000/33700000/33696700/33696682/57ddd0c6.jpg?impolicy=resizecrop&rw=1200&ra=fit',
+        'https://images.trvl-media.com/lodging/34000000/33700000/33696700/33696682/9fc626e0.jpg?impolicy=resizecrop&rw=1200&ra=fit',
+        'https://images.trvl-media.com/lodging/34000000/33700000/33696700/33696682/36d2def1.jpg?impolicy=resizecrop&rw=1200&ra=fit',
+        'https://images.trvl-media.com/lodging/34000000/33700000/33696700/33696682/a281cbb9.jpg?impolicy=resizecrop&rw=1200&ra=fit',
+        'https://images.trvl-media.com/lodging/34000000/33700000/33696700/33696682/a480e83c.jpg?impolicy=resizecrop&rw=1200&ra=fit'
+      ],
       features: ['Balcony', 'Gym', 'Swimming Pool', '24/7 Security'],
       priceCut: {
         amount: 15000,
@@ -48,9 +48,9 @@ export class PropertyService {
       agency: 'Suburban Homes',
       agent: 'Bob Smith',
       images: [
-    'https://media.istockphoto.com/id/1415886888/photo/freshly-painted-craftsman-bungalow-house.jpg?s=1024x1024&w=is&k=20&c=RyhWiVE6cwqI2FBT1Ato97Jl7xrnHmvJolNrD2GA-rk=',
-    'https://media.istockphoto.com/id/1415886890/photo/freshly-painted-craftsman-bungalow-house.jpg?s=1024x1024&w=is&k=20&c=--XbZgO0ywJtG4t88ghI68bQuIThdxn9IfoofrUUQu4=',
-    'https://media.istockphoto.com/id/177478372/photo/luxury-family-house.jpg?s=1024x1024&w=is&k=20&c=EBN-bRlV2kl-cTdb-SG6iVsleKKf_y0PoQYhpo59J64='
+        'https://media.istockphoto.com/id/1415886888/photo/freshly-painted-craftsman-bungalow-house.jpg?s=1024x1024&w=is&k=20&c=RyhWiVE6cwqI2FBT1Ato97Jl7xrnHmvJolNrD2GA-rk=',
+        'https://media.istockphoto.com/id/1415886890/photo/freshly-painted-craftsman-bungalow-house.jpg?s=1024x1024&w=is&k=20&c=--XbZgO0ywJtG4t88ghI68bQuIThdxn9IfoofrUUQu4=',
+        'https://media.istockphoto.com/id/177478372/photo/luxury-family-house.jpg?s=1024x1024&w=is&k=20&c=EBN-bRlV2kl-cTdb-SG6iVsleKKf_y0PoQYhpo59J64='
       ],
       features: ['Garage', 'Large Garden', 'Fireplace'],
       priceCut: {
@@ -72,10 +72,10 @@ export class PropertyService {
       agency: 'Luxury Estates',
       agent: 'Carla Gomez',
       images: [
-    'https://www.theluxurybali.com/wp-content/uploads/2014/12/Villa-Bayu-Gita-Beachfront-Pool-and-deck.jpg',
-    'https://www.theluxurybali.com/wp-content/uploads/2014/12/Villa-Bayu-Gita-Beachfront-Path-across-pond.jpg',
-    'https://www.theluxurybali.com/wp-content/uploads/2014/12/Villa-Bayu-Gita-Beachfront-Ocean-view.jpg',
-    'https://www.theluxurybali.com/wp-content/uploads/2014/12/Villa-Bayu-Gita-Beachfront-Poolside.jpg'
+        'https://www.theluxurybali.com/wp-content/uploads/2014/12/Villa-Bayu-Gita-Beachfront-Pool-and-deck.jpg',
+        'https://www.theluxurybali.com/wp-content/uploads/2014/12/Villa-Bayu-Gita-Beachfront-Path-across-pond.jpg',
+        'https://www.theluxurybali.com/wp-content/uploads/2014/12/Villa-Bayu-Gita-Beachfront-Ocean-view.jpg',
+        'https://www.theluxurybali.com/wp-content/uploads/2014/12/Villa-Bayu-Gita-Beachfront-Poolside.jpg'
       ],
       features: ['Private Pool', 'Sauna', 'Home Theater', 'Smart Home System'],
       priceCut: {
@@ -90,6 +90,7 @@ export class PropertyService {
   getProperties(): Observable<Property[]> {
     return of(this.properties);
   }
+
 
   getPropertyById(id: string): Observable<Property | undefined> {
     const property = this.properties.find(p => p.id === id);
@@ -132,4 +133,29 @@ export class PropertyService {
     this.properties = this.properties.filter(p => p.id !== id);
     return of(this.properties.length < initialLength);
   }
+  getFilteredProperties(status: string): Observable<Property[]> {
+    if (status === 'all') {
+      return of(this.properties);
+    }
+    const filtered = this.properties.filter(p => p.status.toLowerCase() === status.toLowerCase());
+    return of(filtered);
+  }
+  searchProperties(searchText: string): Observable<Property[]> {
+    const text = searchText.toLowerCase();
+
+    const filtered = this.properties.filter(property => {
+      return (
+        property.title.toLowerCase().includes(text) ||
+        property.status.toLowerCase().includes(text) ||
+        property.description.toLowerCase().includes(text) ||
+        property.agent.toLowerCase().includes(text) ||
+        property.id.toString().includes(text) ||
+        property.price.toString().includes(text) ||
+        property.area.toString().includes(text)
+      );
+    });
+
+    return of(filtered);
+  }
+
 }

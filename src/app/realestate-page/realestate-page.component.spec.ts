@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeaveReviewFormComponent } from './leave-review-form';
+import { RealestatePageComponent } from './realestate-page.component';
 
-describe('LeaveReviewForm', () => {
-  let component: LeaveReviewFormComponent;
-  let fixture: ComponentFixture<LeaveReviewFormComponent>;
+describe('RealestatePageComponent', () => {
+  let component: RealestatePageComponent;
+  let fixture: ComponentFixture<RealestatePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LeaveReviewFormComponent]
+      imports: [RealestatePageComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LeaveReviewFormComponent);
+    fixture = TestBed.createComponent(RealestatePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

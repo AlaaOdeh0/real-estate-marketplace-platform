@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeaveReviewFormComponent } from './leave-review-form';
+import { UserrequestComponent } from './userrequest.component';
 
-describe('LeaveReviewForm', () => {
-  let component: LeaveReviewFormComponent;
-  let fixture: ComponentFixture<LeaveReviewFormComponent>;
+describe('UserrequestComponent', () => {
+  let component: UserrequestComponent;
+  let fixture: ComponentFixture<UserrequestComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LeaveReviewFormComponent]
+      imports: [UserrequestComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LeaveReviewFormComponent);
+    fixture = TestBed.createComponent(UserrequestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
