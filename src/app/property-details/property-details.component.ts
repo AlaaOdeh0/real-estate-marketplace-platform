@@ -20,12 +20,12 @@ export class PropertyDetailsComponent implements OnInit {
     public router: Router
   ) {}
 
- ngOnInit(): void {
+  ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.propertyService.getPropertyById(id).subscribe({
         next: (prop) => {
-         this.property = prop ?? null;
+          this.property = prop ?? null;
         },
         error: () => {
           this.router.navigate(['/']);
@@ -34,17 +34,16 @@ export class PropertyDetailsComponent implements OnInit {
     }
   }
 
-confirmDelete(): void {
-  if (!this.property) return;
-  const confirmed = confirm('Are you sure you want to delete this property?');
-  if (confirmed) {
-    this.propertyService.deleteProperty(this.property.id).subscribe(() => {
-      alert('Property deleted!');
-      this.router.navigate(['/']);
-    });
+  confirmDelete(): void {
+    if (!this.property) return;
+    const confirmed = confirm('Are you sure you want to delete this property?');
+    if (confirmed) {
+      this.propertyService.deleteProperty(this.property.id).subscribe(() => {
+        alert('Property deleted!');
+        this.router.navigate(['/']);
+      });
+    }
   }
-}
-
 
   navigateToEdit(): void {
     if (this.property) {
@@ -71,20 +70,23 @@ confirmDelete(): void {
   }
 
   openFeedback(): void {
-    this.router.navigate(['/feedback']);
+    if (this.property) {
+      this.router.navigate(['/feedback', this.property.id]);
+    }
   }
+
   currentSlide = 0;
 
-nextSlide() {
-  if (this.property && this.property.images.length > 0) {
-    this.currentSlide = (this.currentSlide + 1) % this.property.images.length;
+  nextSlide() {
+    if (this.property && this.property.images.length > 0) {
+      this.currentSlide = (this.currentSlide + 1) % this.property.images.length;
+    }
   }
-}
 
-prevSlide() {
-  if (this.property && this.property.images.length > 0) {
-    this.currentSlide =
-      (this.currentSlide - 1 + this.property.images.length) % this.property.images.length;
+  prevSlide() {
+    if (this.property && this.property.images.length > 0) {
+      this.currentSlide =
+        (this.currentSlide - 1 + this.property.images.length) % this.property.images.length;
+    }
   }
-}
 }
