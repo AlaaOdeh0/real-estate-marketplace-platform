@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LeaveReviewFormComponent } from '../leave-review-form/leave-review-form';
-import { ReviewItemComponent } from '../review-item/review-item';
+
+// 1. استيراد المكونين الذين تريد عرضهما
 import { ReviewDisplayComponent } from '../review-display/review-display';
+import { ReviewItemComponent } from '../review-item/review-item';
 
 @Component({
   selector: 'app-feedback-page',
   standalone: true,
   imports: [
     CommonModule,
-    LeaveReviewFormComponent,
-    ReviewItemComponent,
-    ReviewDisplayComponent
+    // 2. إضافتهما هنا لكي يتعرف عليهما الـ HTML
+    ReviewDisplayComponent,
+    ReviewItemComponent 
   ],
   templateUrl: './feedback-page.component.html',
   styleUrls: ['./feedback-page.component.css']
