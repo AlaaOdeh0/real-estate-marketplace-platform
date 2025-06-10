@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Review } from '../interfaces/review';
 import { NgFor, NgIf } from '@angular/common';
+import { ReviewService } from '../services/review.service'; // 💡 استدعاء الخدمة
 
 @Component({
   selector: 'app-leave-review-form',
@@ -23,7 +24,7 @@ export class LeaveReviewFormComponent implements OnInit {
 
   @Output() reviewSubmitted = new EventEmitter<Review>();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private reviewService: ReviewService) {
     this.reviewForm = this.fb.group({
       rating: [null, [Validators.required, Validators.min(1), Validators.max(5)]],
       comment: ['', Validators.required]
@@ -56,9 +57,12 @@ export class LeaveReviewFormComponent implements OnInit {
         comment: this.reviewForm.value.comment,
         date: new Date(),
       };
-      this.reviewSubmitted.emit(newReview);
-      this.reviewForm.reset();
-      this.selectedRating = 0;
+
+      this.reviewService.addReview(newReview).subscribe(() => {
+        this.reviewSubmitted.emit(newReview);
+        this.reviewForm.reset();
+        this.selectedRating = 0;
+      });
     } else {
       this.reviewForm.markAllAsTouched();
     }
